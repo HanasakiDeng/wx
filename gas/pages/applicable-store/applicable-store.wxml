@@ -1,0 +1,13 @@
+<!--pages/applicable-store/applicable-store.wxml-->
+<view class='container'>
+  <view class='title'>共2家门店</view>
+  <view class='content'>
+    <view class='list'>
+      <view class='item'>
+        <view class='item-name'></view>
+        <view class='item-kil'></view>
+      </view>
+      <view class='sub-item'></view>
+    </view>
+  </view>
+</view>

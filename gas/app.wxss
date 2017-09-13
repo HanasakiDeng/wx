@@ -2,6 +2,7 @@
 
 page {
   background-color: #f5f5f5;
+  font-size: 0.75rem;
 }
 
 /*向右图标  */
@@ -84,4 +85,8 @@ page {
 
 .fs-15 {
   font-size: 0.75rem;
+}
+
+.fs-13 {
+  font-size: 0.65rem;
 }

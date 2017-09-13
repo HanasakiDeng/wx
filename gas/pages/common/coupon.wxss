@@ -1,0 +1,46 @@
+.packet-box {
+  margin: 0.5rem 1rem;
+  overflow: hidden;
+  background: -webkit-linear-gradient(115deg, #ff7782, #ff7782 50%, #ff7782 80%, #ff7782 80%, #ff7782);
+  color: #fff;
+  padding: 0.5rem 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 3px 3px 3px rgba(255, 255, 225, 0.2);
+}
+
+.packet-box >.packet-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.packet-item >.amount {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.packet-item >.amount-detail {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.amount-detail >.detail-item:last-child {
+  font-size: 0.6rem;
+}
+
+
+.li {
+  font-size: 0.6rem;
+  line-height: 3vh;
+}
+
+.li::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 0.2rem;
+  background: #fff;
+}

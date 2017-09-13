@@ -1,4 +1,38 @@
 <!--pages/my-red-packet/my-red-packet.wxml-->
-<view class='demo'>
-  <view></view>
+<view class='container'>
+  <!--红包  -->
+  <navigator class='packet-box'>
+    <view class='packet-item'>
+      <view class='amount'>1</view>
+      <view class='amount-detail'>
+        <view class='detail-item'>元</view>
+        <view class='detail-item'>洗车劵</view>
+      </view>
+    </view>
+    <view class='ul'>
+      <view class='li'>
+        仅支付1元即可享受洗车服务
+      </view>
+      <view class='li'>
+        可用时间:2017.10.05-2017.11.10
+      </view>
+    </view>
+  </navigator>
+  <navigator class='packet-box'>
+    <view class='packet-item'>
+      <view class='amount'>10</view>
+      <view class='amount-detail'>
+        <view class='detail-item'>元</view>
+        <view class='detail-item'>服务费</view>
+      </view>
+    </view>
+    <view class='ul'>
+      <view class='li'>
+        仅支付10元即可享受空调清洗
+      </view>
+      <view class='li'>
+        可用时间:2017.10.05-2017.11.10
+      </view>
+    </view>
+  </navigator>
 </view>

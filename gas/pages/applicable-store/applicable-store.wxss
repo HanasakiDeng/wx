@@ -1,0 +1,5 @@
+/* pages/applicable-store/applicable-store.wxss */
+
+.title {
+  margin: 0.5rem 1rem;
+}

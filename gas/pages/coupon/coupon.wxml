@@ -1,0 +1,39 @@
+<!--pages/coupon/coupon.wxml-->
+<view class='container'>
+  <!--红包  -->
+  <view class='packet-box'>
+    <view class='packet-item'>
+      <view class='amount'>1</view>
+      <view class='amount-detail'>
+        <view class='detail-item'>元</view>
+        <view class='detail-item'>洗车劵</view>
+      </view>
+    </view>
+    <view class='ul'>
+      <view class='li'>
+        仅支付1元即可享受洗车服务
+      </view>
+      <view class='li'>
+        可用时间:2017.10.05-2017.11.10
+      </view>
+    </view>
+  </view>
+  <!--附近范围  -->
+  <view class='list'>
+    <navigator class='list-item' open-type='navigate' url='../../my-collection/my-collection'>
+      <view class='text'>适用门店</view>
+      <view class='arrow-2 color-a9a9a9 fs-13'>最近152米</view>
+    </navigator>
+  </view>
+  <view class='desc'>
+    <view class='desc-title fs-15'>活动细则</view>
+    <view class='desc-content color-a9a9a9 fs-13'>
+      <view class='rule'>
+        1,分享红包,每成功邀请一位新用户关注"加油赞"微信公众号,红包优惠金额即可增值0.5元
+      </view>
+      <view class='rule'>
+        2, 红包使用期限:2017.10.05-2017.11.10
+      </view>
+    </view>
+  </view>
+</view>

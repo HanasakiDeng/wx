@@ -1,0 +1,32 @@
+/* pages/coupon/coupon.wxss */
+@import '../common/coupon.wxss';
+
+.list {
+  background: #fff;
+  margin-top: 3vh;
+}
+
+.list .list-item {
+  display: flex;
+  line-height: 7vh;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1rem;
+}
+.list-item .text {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.list-item .arrow-2 {
+  flex: 1;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.desc {
+  line-height: 1rem;
+  margin: 0.5rem 1rem;
+}
