@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/order-status/order-status",
+    "pages/add-address/add-address",
+    "pages/return-status/return-status",
+    "pages/my/my",
+    "pages/order-detail/order-detail",
+    "pages/index/index",
+    "pages/cart/cart",
+    "pages/return-success/return-success",
+    "pages/pay-success/pay-success",
+    "pages/my-order/my-order",
+    "pages/o2-list/o2-list",
+    "pages/product-description/product-description",
+    "pages/product-list/product-list",
+    "pages/pending/pending",
+    "pages/using/using",
+    "pages/my-deposit/my-deposit"
+  ],
+  "window": {
+    "backgroundTextStyle": "#242424",
+    "navigationBarBackgroundColor": "#c6d864",
+    "navigationBarTitleText": "氧娃娃",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  }
+}

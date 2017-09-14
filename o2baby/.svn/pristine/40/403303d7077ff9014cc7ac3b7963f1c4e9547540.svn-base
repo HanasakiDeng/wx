@@ -1,0 +1,49 @@
+<!--add-address.wxml-->
+<import src="../tpls/toast/toast.wxml"></import>
+<template is="toast" data="{{...item}}"></template>
+<view class="container">
+  <form bindsubmit="submitAddress">
+    <view class="form-box">
+      <view class="form-item">
+        <view class="form-item-hd">
+          <view class="form-item-label">收货人</view>
+        </view>
+        <view class="form-item-hb">
+          <input id="username" maxlength="10" placeholder="姓名(必填)" name="name" class="form-input" />
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-hd">
+          <view class="form-item-label">手机</view>
+        </view>
+        <view class="form-item-hb">
+          <input id="tel" maxlength="11" placeholder="请输入手机号码(必填)" name="mobile" class="form-input" />
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-hd">
+          <view class="form-item-label">收货地区</view>
+        </view>
+        <view class="form-item-hb">
+          <picker mode="region" bindchange="bindRegionChange">
+            <view class="form-input">
+              <view wx:if="{{region ==undefined}}">请选择省,市,区(必填)</view>{{region}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-item-hd">
+          <view class="form-item-label">详细地址</view>
+        </view>
+        <view class="form-item-hd">
+          <input id="username" maxlength="10" placeholder="请填写详细地址(必填)" name="detail" class="form-input" />
+        </view>
+      </view>
+    </view>
+
+    <view class="btn-area">
+      <button class="btn-success" formType="submit">保存</button>
+    </view>
+  </form>
+</view>

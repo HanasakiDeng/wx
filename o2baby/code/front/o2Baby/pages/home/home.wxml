@@ -1,0 +1,14 @@
+<!--home.wxml-->
+<view class="container">
+  <view class="foot">
+    <view class="line1">
+      <image src="{{icon.cart}}" class="right-bottom-top" mode="aspectFit" bindtap="toCart"></image>
+        <view class="badge badge-pos" wx:if="{{cartListNum>0}}">{{cartListNum}}</view>
+    </view>
+    <view class="line2">
+      <image src="{{icon.scan}}" class="left-bottom" bindtap="onScanCode" mode="aspectFit"></image>
+      <button class="btn-success btn-mid center-bottom" bindtap="toProduct">我要用氧</button>
+      <image src="{{icon.my}}" bindtap="toMine" class="right-bottom" mode="aspectFit"></image>
+    </view>
+  </view>
+</view>

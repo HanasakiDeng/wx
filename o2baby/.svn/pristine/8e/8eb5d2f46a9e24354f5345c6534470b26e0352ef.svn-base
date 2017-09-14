@@ -1,0 +1,71 @@
+<!--order-detail.wxml-->
+<!--模态框  -->
+<import src="../tpls/modal/modal.wxml"></import>
+<view class="container-pd">
+  <view class="card">
+    <view class="card-item">
+      <view class="card-item-hd">
+       产品名称
+      </view>
+      <view class="card-item-bd"></view>
+    </view>
+    <view class="card-item">
+      <view class="card-item-hd">
+        <view class="card-item-hd-img"></view>
+      </view>
+      <view class="card-item-bd">
+        <view class="sub-list">
+          <view class="sub-list-item">
+            <view class="multi-line">
+              <view class="multi-line-item">
+                <view class="multi-line-item-hd">规格：</view>
+                <view class="multi-line-item-bd">20L</view>
+              </view>
+              <view class="multi-line-item">
+                <view class="multi-line-item-hd">规格：</view>
+                <view class="multi-line-item-bd">20L</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="card-item-ft">
+      </view>
+    </view>
+    <view class="card-item font-orange">
+      <view class="card-item-hd card-item-left">押金：</view>
+      <view class="card-item-ft font-orange card-item-right">¥200.0</view>
+    </view>
+  </view>
+  <view class="card" style="padding:0;background: url('../../images/other/orange_line@3x.png') #fff;background-size: 8rpx;background-position: left;background-repeat: no-repeat;">
+    <view class="card-item cell-padding">
+      <view class="card-item-bd">领取时间</view>
+      <view class="card-item-ft arrow">
+       <picker mode="date" bindchange="bindDateChange" start="{{defDate}}">
+        <text>{{sendDate}}</text>
+       </picker>
+      </view>
+    </view>
+    <view class="card-item cell-padding">
+      <view class="card-item-bd">配送方式</view>
+      <view class="card-item-ft arrow" bindtap="showOrHideModal">{{way}}</view>
+    </view>
+     <view class="card-item cell-padding card-item-center" wx:if="{{way !=getWay[0]}}">
+     新增收获地址
+       <image src="../../images/icon/add@3x.png" class="icon-mid" bindtap="toAddAddress"></image>
+    </view>
+  </view>
+  <view class="card" style="padding:0; background: url('../../images/other/purple_line@3x.png') #fff;background-size: 8rpx;background-position: left;background-repeat: no-repeat;">
+    <view class="card-item cell-padding">
+      <view class="card-item-bd">账户可抵用余额</view>
+      <view class="card-item-ft arrow font-purple">¥100.00</view>
+    </view>
+  </view>
+ <view class="foot">
+    <view class="ft-item-hd">应付金额: <text class="font-orange" style="margin-left:10rpx;">¥{{payNum}}</text></view>
+    <view class="ft-item-ft">
+      <view class="btn-default" bindtap="confirmPay">确认付款</view>
+    </view>
+  </view>
+</view>
+<template is="modal" data="{{...modalItem}}"></template>

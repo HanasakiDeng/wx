@@ -1,0 +1,2 @@
+/* pay-success.wxss */
+@import '../tpls/success/success.wxss';

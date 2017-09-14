@@ -1,0 +1,30 @@
+<!--cart.wxml-->
+<!--购物车为空情况模板  -->
+<import src="../tpls/empty/empty.wxml"></import>
+<!--存在购物清单模板  -->
+<import src="../tpls/cart-cell/cart-cell.wxml"></import>
+<block wx:if="{{cartList.length >0}}">
+  <!--存在购物车订单的情况  -->
+  <view class="container-pd">
+    <block wx:for="{{cartList}}" wx:key="item" wx:index="index">
+      <template is="cart-cell" data="{{...item}}">
+      </template>
+    </block>
+  </view>
+</block>
+<block wx:else>
+  <template is="empty" data="{{...item}}"></template>
+</block>
+<block wx:if="{{cartList.length >0}}">
+  <view class="foot">
+    <view class="ft-hd">
+      全选
+    </view>
+    <view class="ft-bd">
+      合计: ¥100.0
+    </view>
+    <view class="ft-ft">
+      <view class="btn-default" bindtap="confirmPay">确认付款</view>
+    </view>
+  </view>
+</block>

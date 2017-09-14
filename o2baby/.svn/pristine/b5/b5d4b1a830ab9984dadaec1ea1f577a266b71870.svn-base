@@ -1,0 +1,25 @@
+<!--return-status.wxml-->
+<view class="pg-header">
+</view>
+<view class="container-pd">
+  <view class="card-2">
+    <view class="card-content border-bottom">
+      <view class="card-row-1">
+         <image src="../../images/icon/submit@3x.png"></image>
+        <view class="img-desc">提交申请</view> 
+      </view>
+      <view class="card-row-2"></view>
+      <view class="card-row-3">
+         <image src="../../images/icon/return@3x.png"></image>
+        <view class="img-desc-gray">归还氧吧</view> 
+      </view>
+
+    </view>
+    <view class="card-foot">
+      您已提交了归还操作,请尽快还至氧吧!  温馨提示: 归还期间照常计费哦~
+    </view>
+  </view>
+  <view class="card-btn-area">
+    <button class="btn-success  btn-sm-plus" bindtap="toIndex">返回首页</button>
+  </view>
+</view>

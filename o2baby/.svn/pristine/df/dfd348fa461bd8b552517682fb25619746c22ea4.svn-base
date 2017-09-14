@@ -1,0 +1,125 @@
+// product-list.js
+const MAX_NUM = 20;
+let numList = [];
+for (let index = 1; index <= MAX_NUM; index++) {
+  numList.push(index);
+}
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    showModalStatus: false,
+    optionsNum: numList,
+    userBuyNum: 0,
+    goods: [{
+      name: '产品名称最多不超过12个字',
+      style: 'A',
+      capacity: '12',
+      usetime: '48',
+      place: '宾馆等固定'
+    }, {
+      name: '产品名称最多不超过12个字',
+      style: 'A',
+      capacity: '12',
+      usetime: '48',
+      place: '宾馆等固定'
+    }]
+  },
+  toOrderDetail: function () {
+    wx.navigateTo({
+      url: '../orderslist/orderslist',
+      success: function () {
+        console.log(10);
+      }
+    })
+  },
+  addToCart: function (e) {
+    this.setData({
+      showModalStatus: true
+    });
+  },
+  /**
+   * 获取用户选择数据
+   */
+  bindNumChange: function (e) {
+    let selectIndex = e.detail.value;
+    let selectNum = this.data.optionsNum[selectIndex];
+    this.setData({
+      userBuyNum: selectNum
+    })
+  },
+  /**
+   * 加入购物车表单提交
+   */
+  bindConfrimData: function (e) {
+    this.setData({
+      showModalStatus: false
+    });
+    console.log(this.data.userBuyNum);
+  },
+  /**
+   * 隐藏模态框
+   */
+  hideModal: function () {
+    this.setData({
+      showModalStatus: false
+    });
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  }
+})

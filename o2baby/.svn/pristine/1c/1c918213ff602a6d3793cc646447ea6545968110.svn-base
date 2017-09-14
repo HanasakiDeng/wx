@@ -1,0 +1,11 @@
+<!--dialog.wxml-->
+<template name="dialog">
+ <view wx:if="{{showDialogStatus}}" class="dialog-mask" bindtap="hideDialog"></view>
+ <view class="dialog" wx:if="{{showDialogStatus}}">
+   <view class="content">{{content}}</view>
+   <view class="dialog-btn-area">
+    <view class='btn-confirm' bindtap="bindBack">{{confirmText}}</view>
+    <view class='btn-cancel' bindtap="showOrHideDialog">{{cancelText}}</view>
+   </view>
+ </view>
+</template>

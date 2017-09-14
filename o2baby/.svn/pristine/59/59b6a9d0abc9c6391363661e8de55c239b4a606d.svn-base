@@ -1,0 +1,51 @@
+/* cart.wxss */
+@import "../tpls/empty/empty.wxss";
+@import "../tpls/cart-cell/cart-cell.wxss";
+
+.container-pd {
+  position: relative;
+}
+
+.foot {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 108rpx;
+  line-height: 108rpx;
+  background: #fff;
+  text-align: right;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ft-hd {
+  flex: 1;
+  display: flex;
+  height: 108rpx;
+  line-height: 108rpx;
+  vertical-align: middle;
+  justify-content: flex-start;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.select-all {
+  margin: 26rpx 28rpx;
+  margin-right: 0rpx;
+}
+
+.ft-bd {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.ft-ft {
+  flex: 1;
+  margin: auto 15rpx;
+  font-size: 36rpx;
+  color: #fff;
+}

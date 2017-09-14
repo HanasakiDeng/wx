@@ -1,0 +1,82 @@
+/* my.wxss */
+
+.bg-header {
+  height: 100%;
+  margin-top: 1.7%;
+  border-top-left-radius: 18rpx;
+  border-top-right-radius: 18rpx;
+}
+
+.mine-header {
+  margin: 17.3% 38.7% 2.1% 38.7%;
+  height: 172rpx;
+  width: 172rpx;
+  border-radius: 86rpx;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.mine-nickname {
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+.list {
+  box-sizing: border-box;
+  padding: 3.2% 0;
+  border-bottom-right-radius: 18rpx;
+  border-bottom-left-radius: 18rpx;
+  background-color: #fff;
+  box-shadow: 0 4rpx 8rpx 0 rgba(197, 211, 117, 0.35);
+}
+
+.list-item {
+  line-height: 15%;
+  padding: 18rpx 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: solid 2rpx #ececec;
+}
+.list-item:first-of-type{
+  padding-top:20rpx;
+}
+
+.list .list-item:last-of-type {
+  border: none;
+}
+
+.list-item-hd {
+  margin-left: 16rpx;
+}
+
+.list-item-bd {
+  margin-left: 16rpx;
+  flex: 1;
+  -webkit-box-flex: 1;
+}
+
+.list-item-ft {
+  vertical-align: middle;
+  margin-right: 20rpx;
+  display: inline-block;
+}
+.list-item-ft-desc1{
+   font-size: 28rpx;
+  color: #ffc250;
+}
+.list-item-ft-desc2{
+   font-size: 30rpx;
+   color: #333333;
+}
+.foot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 30%;
+}

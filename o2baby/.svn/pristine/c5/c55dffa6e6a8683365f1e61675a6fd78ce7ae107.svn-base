@@ -1,0 +1,2 @@
+/* using.wxss */
+@import '../pending/pending.wxss';

@@ -1,0 +1,36 @@
+<!--my.wxml-->
+<!--我的主界面  -->
+<view class="page">
+  <view class="container-pd">
+    <view class="bg-header" style="background: url('../../../../images/bg/my@3x.png');background-size: 100% 100%;background-repeat: no-repeat;background-clip: content-box;">
+      <image src="{{user.header}}" class="mine-header"></image>
+      <view class="mine-nickname">{{user.nickName}}</view>
+    </view>
+    <view class="list">
+      <block wx:for="{{menuList}}" wx:key="item" wx:index="index">
+        <navigator class="list-item" url="{{item.url}}">
+          <view class="list-item-hd">
+            <image src="{{item.icon}}" class='icon-mid'></image>
+          </view>
+          <view class="list-item-bd ">{{item.text}}</view>
+          <view class="list-item-ft arrow">
+            <text class="list-item-ft-desc1" wx:if="{{index ==0}}">¥{{item.desc}}</text>
+          </view>
+        </navigator>
+      </block>
+    </view>
+    <view class="card" style="padding:0;" bindtap="makecall">
+      <view class="list-item">
+        <view class="list-item-hd">
+          <image src="../../../images/icon/customer@3x.png" class='icon-mid'></image>
+        </view>
+        <view class="list-item-bd">
+          联系客服
+        </view>
+        <view class="list-item-ft arrow">
+          <text class="list-item-ft-desc2">400-8888-8888</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+/* empty.wxss */
+
+.container {
+  height: 100%;
+  display: flex;
+  margin-top: 30%;
+  display: -webkit-flex;
+  flex-direction: column;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+image {
+  width: 482rpx;
+  height: 310rpx;
+}
+
+.img-desc {
+  text-align: left;
+  margin-top: 10%;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  color: #878787;
+}

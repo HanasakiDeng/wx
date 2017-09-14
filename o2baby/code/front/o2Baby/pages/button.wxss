@@ -1,0 +1,117 @@
+
+/*小按钮尺寸  */
+.btn-sm {
+  width: 270rpx;
+  height: 80rpx;
+}
+
+.btn-fill {
+  height: 90rpx;
+}
+
+.btn-mid {
+  height: 94rpx;
+}
+
+.btn-sm-plus {
+ 
+  height: 94rpx;
+}
+
+/*大按钮尺寸  */
+
+.btn-lg {
+  height: 80rpx;
+}
+
+/*微小按钮尺寸  */
+
+.btn-xs {
+  width: 90%;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+/*微小大按钮尺寸  */
+
+.btn-lxs {
+  line-height: 72rpx;
+ 
+  height: 72rpx;
+}
+
+.btn-xs-plus {
+ 
+  height: 72rpx;
+}
+
+/*默认按钮为方形按钮  */
+
+.btn-default {
+  line-height: 80rpx;
+  height: 80rpx;
+  text-align: center;
+  background-color: #ffc250;
+}
+
+.btn-purple {
+  border: solid 2rpx #b3acff;
+  color: #b3acff;
+  box-shadow: 0 4rpx 8rpx 0 rgba(197, 211, 117, 0.35);
+}
+
+.btn-orange {
+  color: #ffc250;
+  border: solid 2rpx #ffc250;
+  box-shadow: 0 6rpx 2rpx 2rpx rgba(244, 167, 153, 0.2);
+}
+
+.btn-green-1 {
+  background-color: transparent;
+  color: #879633;
+  box-shadow: 0 6rpx 2rpx 2rpx rgba(157, 171, 74, 0.39);
+  border: solid 1px #879633;
+}
+
+.btn-info {
+  text-align: center;
+  border-radius: 200rpx;
+  font-size: 28rpx;
+}
+
+.btn-success {
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+  height: 94rpx;
+  line-height: 94rpx;
+  border-radius: 200rpx;
+  background-color: #c6d764;
+  box-shadow: 0 6rpx 12rpx 2rpx rgba(197, 211, 117, 0.33);
+}
+
+.btn-success::after {
+  border: none;
+}
+
+.btn-info:active, .btn-success:active, .btn-default:active {
+  opacity: 0.6;
+}
+
+.btn-white {
+  border: solid 1px #c0c0c0;
+  background-color: #fff;
+  color: #747474;
+}
+
+.btn-green {
+  border: none;
+  background-color: #c6d764;
+  color: #fff;
+}
+
+.btn-primary {
+  border-radius: 4rpx;
+  padding-top: 24rpx;
+  text-align: center;
+}

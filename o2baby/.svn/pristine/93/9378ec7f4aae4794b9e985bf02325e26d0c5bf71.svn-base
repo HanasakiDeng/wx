@@ -1,0 +1,106 @@
+@import "../tpls/modal/modal.wxss";
+.card-item-hd-img {
+  width: 176rpx;
+  height: 176rpx;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.sub-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  color: #727272;
+}
+
+.sub-list-item {
+  border-top: 2rpx solid #ececec;
+  display: flex;
+  padding: 13rpx 0;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.sub-list-item:first-of-type {
+  border: none;
+}
+
+.name {
+  width: 320rpx;
+  font-size: 24rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.multi-line-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-content: center;
+  font-size: 22rpx;
+  padding: 8rpx 0;
+}
+.multi-line-item-hd{
+ 
+}
+.multi-line-item-bd{
+  flex:1;
+}
+.multi-line-item-ft{
+  margin-left:30rpx;
+  margin-top:-4rpx;
+}
+.card-item-left{
+  padding:19rpx 0 ;
+  flex:1;
+  align-self: flex-start;
+}
+.card-item-right{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding:19rpx 0 ;
+  align-self: flex-end;
+}
+.cell-padding{
+  padding:30rpx 26rpx;
+  margin-left: 8rpx;
+}
+.card-item-center{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  -webkit-box-align: center;
+}
+.foot {
+  position: absolute;
+  left: 0;
+  right:0;
+  bottom: 0;
+  height: 108rpx;
+  line-height: 108rpx;
+  background: #fff;
+  text-align: right;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.ft-item-hd{
+  font-size:30rpx;
+  flex:2;
+  text-align: center;
+}
+.ft-item-ft{
+ flex:1;
+ margin-right:14rpx;
+ font-size: 18px;
+  text-align: center;
+  color: #ffffff;
+}

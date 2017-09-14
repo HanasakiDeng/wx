@@ -1,0 +1,162 @@
+/**index.wxss**/
+
+page {
+  background-color: #f8f8f8;
+  font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif, PingFangSC;
+}
+
+.container-pd {
+  padding: 1.5% 3.7%;
+}
+
+.container {
+  padding: 0;
+}
+
+/*卡片类型  */
+
+.card {
+  margin-top: 1.17647059em;
+  border-radius: 20rpx;
+  background-color: #fff;
+  padding: 0 4.6%;
+  box-shadow: 0 4rpx 8rpx 0 rgba(197, 211, 117, 0.35);
+}
+
+.card-item {
+  display: flex;
+  flex-direction: row;
+  padding: 1.5%;
+  font-size: 30rpx;
+  border-top: 2rpx solid #ececec;
+}
+
+.active-hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.card-item:first-child {
+  border: none;
+}
+
+.card-item-hd {
+  flex: 1;
+}
+
+.icon {
+  vertical-align: middle;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.icon-mid {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.icon-lg {
+  width: 176rpx;
+  height: 176rpx;
+}
+
+.card-item-ft {
+  font-size: 28rpx;
+  color: #949494;
+}
+
+.card-hd {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 1.5% 0;
+  font-size: 30rpx;
+}
+
+.card-hd-text {
+  flex: 1;
+}
+
+.card-hd-desc {
+  font-size: 28rpx;
+  color: #949494;
+  /* text-align: right; */
+}
+
+/*向右图标  */
+
+.arrow {
+  padding-right: 4.6%;
+  position: relative;
+}
+
+.arrow:after {
+  content: '';
+  display: inline-block;
+  width: 18rpx;
+  height: 18rpx;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  margin-top: -10rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-style: solid;
+  border-color: #d2d2d2;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+
+.card-bd {
+  border-top: 2rpx solid #ececec;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-bd-img {
+  display: inline-block;
+  width: 168rpx;
+  height: 168rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card-bd-desc {
+  margin-left: 28rpx;
+  font-size: 28rpx;
+  color: #888;
+}
+
+.card-ft {
+  padding: 1.5%;
+  border-top: 2rpx solid #ececec;
+  font-size: 30rpx;
+  color: #ffc250;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-ft-text {
+  flex: 1;
+}
+
+.card-ft-desc {
+  text-align: right;
+}
+
+.add-orange-line {
+  background: url('../images/other/orange_line@3x.png') #fff;
+  background-size: 4rpx;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.add-purple-line {
+  background: url('../images/other/purple_line@3x.png') #fff;
+  background-size: 4rpx;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.card-item-bd-img {
+  width: 176rpx;
+  height: 176rpx;
+  background-color:#ffc250;
+}

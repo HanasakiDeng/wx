@@ -1,0 +1,70 @@
+<!--product-list.wxml-->
+<!--使用中  -->
+<view class="container-pd" wx:if="{{hidden}}">
+  <block wx:for="{{productList}}" wx:key="item" wx:index="index">
+    <view class="card">
+      <view class="card-item" style="padding:3% 0;">
+        <view class="card-item-hd title">
+          {{item.description}}
+        </view>
+        <view class="card-item-bd"></view>
+        <view class="card-item-ft status-box orange">
+          {{item.description}}
+        </view>
+      </view>
+      <view class="card-item">
+        <view class="card-item-hd">
+          <view class="sub-list-item test">
+            <view class="multi-line">
+              <view class="multi-line-item">
+                <view class="multi-line-item-hd">规格：</view>
+                <view class="multi-line-item-bd">{{item.specification}}</view>
+              </view>
+              <view class="multi-line-item">
+                <view class="multi-line-item-hd">使用时长：</view>
+                <view class="multi-line-item-bd">{{item.use_time}}</view>
+              </view>
+
+              <view class="multi-line-item">
+                <view class="multi-line-item-hd">价格:</view>
+                <view class="multi-line-item-bd">¥ {{item.price}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="card-item-bd">
+          <image src="{{item.product_img}}" class="card-item-hd-img"></image>
+          <view class="sub-list">
+          </view>
+        </view>
+        <view class="card-item-ft">
+        </view>
+      </view>
+      <view class="card-item ">
+        <view class="card-item-hd card-item-left">
+          <view class="btn-info btn-purple btn-xs" bindtap="addToCart">加入购物车</view>
+        </view>
+        <view class="card-item-bd card-item-right">
+          <view class="btn-info btn-orange  btn-xs" bindtap="toOrderDetail" data-item="{{item}}" >我要用氧</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="mask" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="modal" wx:if="{{showModalStatus}}">
+  <view class="modal-header">
+    <view class="modal-title">请选择产品数量</view>
+    <view class="modal-close" bindtap="hideModal"></view>
+  </view>
+  <view class="modal-content">
+    <picker-view indicator-style="height: 64rpx" bindchange="bindNumChange">
+      <picker-view-column>
+        <view wx:for="{{optionsNum}}" wx:for-index="idx" class="picker-column">{{optionsNum[idx]}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+  <view class="modal-foot">
+    <view class="btn-info btn-orange btn-lxs" bindtap="bindConfrimData" data-order="{{select}}" >确定</view>
+  </view>
+</view>

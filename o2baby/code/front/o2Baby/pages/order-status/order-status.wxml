@@ -1,0 +1,88 @@
+<!--order-status.wxml-->
+<!--订单状态页面  -->
+<view class="bg-header">
+  <view class="time-text">
+    使用时间
+  </view>
+  <view class="time-box">
+    <view class="time-box-text">
+      06:46:08
+    </view>
+  </view>
+</view>
+<view class="container-pd">
+  <view class="card">
+    <view class="card-item">
+      <view class="card-item-hd">
+        订单号: 111111
+      </view>
+      <view class="card-item-bd"></view>
+      <view class="card-item-ft status-box orange">
+      使用中
+      </view>
+    </view>
+    <view class="card-item">
+      <view class="card-item-hd">
+        <view class="card-item-hd-img"></view>
+      </view>
+      <view class="card-item-bd">
+        <view class="sub-list">
+          <view class="sub-list-item">
+            <view class="sub-list-item-bd">
+              <view class="name">产品名称产品名称产品名称产品名称</view>
+            </view>
+            <view class="sub-list-item-ft">
+              <image src="../../images/icon/multip_sign@3x.png" class="icon-sm"></image>
+              21</view>
+          </view>
+          <view class="sub-list-item">
+            <view class="multi-line">
+              <view class="multi-line-item">
+                <view class="multi-line-item-hd">规格：</view>
+                <view class="multi-line-item-bd">20L</view>
+              </view>
+              <view class="multi-line-item">
+                <view class="multi-line-item-hd">规格：</view>
+                <view class="multi-line-item-bd">20L</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="card-item-ft">
+      </view>
+    </view>
+    <view class="card-item font-orange">
+      <view class="card-item-hd card-item-left">押金：</view>
+      <view class="card-item-ft font-orange card-item-right">¥200.0</view>
+    </view>
+  </view>
+  <view class="card" style="padding:0;background: url('../../images/other/orange_line@3x.png') #fff;background-size: 8rpx;background-position: left;background-repeat: no-repeat;">
+    <view class="card-item cell-padding">
+      <view class="card-item-bd">租用时间</view>
+      <view class="card-item-ft arrow">
+        <picker mode="date" bindchange="bindDateChange" start="{{defDate}}">
+          <text>{{sendDate}}</text>
+        </picker>
+      </view>
+    </view>
+    <view class="card-item cell-padding">
+      <view class="card-item-bd">归还方式</view>
+      <view class="card-item-ft arrow" bindtap="showOrHideModal">{{way}}</view>
+    </view>
+    <view class="card-item cell-padding card-item-center" wx:if="{{way !=getWay[0]}}">
+     <view class="card-item-bd">快递单号</view>
+      <view class="card-item-ft arrow" >1111</view>
+    </view>
+  </view>
+  <view class="foot">
+    <view class="ft-item-hd">应付金额: <text class="font-orange" style="margin-left:10rpx;">¥{{payNum}}</text></view>
+    <view class="ft-item-ft">
+      <view class="btn-default" bindtap="confirmPay">归还</view>
+    </view>
+  </view>
+</view>
+
+<!--归还弹框  -->
+
+<!--归还方式弹框  -->

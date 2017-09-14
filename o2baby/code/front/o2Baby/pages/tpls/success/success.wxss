@@ -1,0 +1,47 @@
+/* success.wxss */
+.pg-hd {
+  background-color: #c6d864;
+  width:100%;
+  height: 200rpx;
+}
+image{
+  width: 176rpx;
+  height: 176rpx;
+}
+.improve-pos{
+  position: absolute;
+  top:1.17647059em;
+  left:4.6%;
+  right:4.6%;
+  padding:0;
+}
+.card-bd{
+  padding-top:13.6%;
+  padding-bottom: 5%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+.card-bd-desc{
+  font-size: 48rpx;
+  text-align: center;
+  color: #c5d375;
+}
+.card-header {
+  text-align: center;
+}
+.card-ft{
+  border-top: 2rpx solid #ececec;
+  font-size: 24rpx;
+  text-align: left;
+  color: #727272;
+  padding:6.2% 3.7%;
+}
+.card-btn-area {
+  position: absolute;
+  top: 55%;
+  width: 90%;
+}

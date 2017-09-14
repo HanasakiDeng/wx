@@ -1,0 +1,47 @@
+class DateUtils {
+  constructor() {
+    this.formatTime = this.formatTime.bind(this);
+  }
+
+  toTimeStamp(date) {
+    if (date instanceof 'Date') {
+      Math.round(date.getTime() / 1000)
+    } else {
+      Math.round((new Date()).getTime() / 1000);
+    }
+  }
+  /**
+   * 格式化日期
+   * 格式为 yyyy-mm-dd
+   * @param timeStamp(10位) 时间戳
+   */
+  formatDate(timeStamp) {
+    var unixTimestamp = new Date(timeStamp * 1000)
+    var date = unixTimestamp.toLocaleDateString();
+    console.log(date);
+    let year = date.getFullYear();
+    let monthTemp = date.getMonth() + 1;
+    let dayTemp = date.getDate();
+    let month = monthTemp > 9 ? monthTemp : '0' + monthTemp;
+    let day = dayTemp > 9 ? dayTemp : '0' + dayTemp;
+    return [year, month, day].map((n) => {
+      return n.toString();
+    }).join('-');
+  }
+
+  /**
+   * 格式化时间 格式为 yyyy-mm-dd hh:mm
+   * @param date 日期字符串
+   */
+  formatTime(timeStamp) {
+    var unixTimestamp = new Date(timeStamp * 1000)
+    var date = unixTimestamp.toLocaleTimeString();
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+    return ` ${this.formatDate(timeStamp)} ${hour}:${minute}`;
+  }
+}
+
+module.exports = {
+  DateUtils: DateUtils
+}

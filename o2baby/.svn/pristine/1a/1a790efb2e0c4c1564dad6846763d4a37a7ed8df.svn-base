@@ -1,0 +1,3 @@
+<!--pay-success.wxml-->
+<import src="../tpls/success/success.wxml"></import>
+<template is="success" data="{{...item}}"></template>

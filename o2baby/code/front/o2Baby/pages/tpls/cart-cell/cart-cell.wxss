@@ -1,0 +1,138 @@
+/* cart-cell.wxss */
+
+.cart-cell-box {
+  margin-bottom: 3.17647059em;
+}
+
+.cart-cell-item-box {
+  overflow: hiddden;
+  margin-top: 1.17647059em;
+  height: 160rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  padding: 3% 4.6%;
+  box-shadow: 0 4rpx 8rpx 0 rgba(197, 211, 117, 0.35);
+  z-index: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  vertical-align: middle;
+}
+
+
+.cart-cell-hd {
+  /* flex: 1; */
+  margin: 16rpx;
+  margin-left: 0;
+  line-height: 160rpx;
+  vertical-align: middle;
+}
+
+.cart-cell-bd {
+  flex: 2;
+  margin-top: 30rpx;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.cart-cell-ft {
+  line-height: 160rpx;
+  vertical-align: middle;
+  flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  color: #c0c0c0;
+}
+
+.cart-cell-img {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 112rpx;
+  width: 112rpx;
+}
+
+/*删除按钮  */
+
+.cart-cell-del-box {
+  position: relative;
+  left: 81.3%;
+  margin-top: -160rpx;
+  width: 15%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  background-color: #f36767;
+  text-align: center;
+   z-index: -1; 
+}
+
+/*删除按钮图片  */
+
+.cart-cell-del-box image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+
+.title {
+  font-size: 30rpx;
+  color: #333;
+}
+
+/*内部单元格  */
+
+.cart-cell-bd-hd {
+  display: flex;
+  flex-direction: row;
+  width: 112rpx;
+  height: 112rpx;
+  background: #f36767;
+}
+
+.cart-cell-bd-bd {
+  flex: 1;
+}
+
+.multi-line-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+  font-size: 22rpx;
+  color: #878787;
+  margin-left: 20rpx;
+}
+.opacity{
+  opacity: 0.6;
+}
+
+.multi-line-list-item {
+  padding: 5rpx 0;
+}
+
+.multi-line-list-item:last-of-type {
+  font-size: 24rpx;
+  color: #ffc250;
+}
+
+.cart-cell-ft-hd:active, .cart-cell-ft-ft:active {
+  opacity: 0.6;
+}
+
+.input-count {
+  margin: auto 10rpx;
+  width: 96rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 14rpx;
+  border: solid 2rpx #c0c0c0;
+  text-align: center;
+  padding: 5rpx 5rpx;
+  color: #333;
+}

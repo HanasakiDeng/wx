@@ -1,0 +1,178 @@
+page {
+  background-color: #f8f8f8;
+  font-size: 32rpx;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif, PingFangSC;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+.container-pd {
+  padding: 1.5% 3.7%;
+}
+
+.container {
+  padding: 0;
+}
+
+/*卡片类型  */
+
+.card {
+  margin-top: 1.17647059em;
+  border-radius: 20rpx;
+  background-color: #fff;
+  padding: 0 4.6%;
+  box-shadow: 0 4rpx 8rpx 0 rgba(197, 211, 117, 0.35);
+}
+
+.card-item {
+  display: flex;
+  flex-direction: row;
+  padding: 1.5%;
+  font-size: 30rpx;
+  border-top: 2rpx solid #ececec;
+}
+
+.border-bottom {
+  border-bottom: 2rpx solid #ececec;
+}
+
+.active-hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.card-item:first-child {
+  border: none;
+}
+
+.card-item-hd {
+  /* flex: 1; */
+}
+
+.card-item-bd {
+  margin-left: 16rpx;
+  flex: 1;
+  -webkit-box-flex: 1;
+}
+
+.icon-sm {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.icon {
+  vertical-align: middle;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.icon-mid {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.icon-lg {
+  width: 176rpx;
+  height: 176rpx;
+}
+
+.card-item-ft {
+  font-size: 28rpx;
+  color: #949494;
+}
+
+/*向右图标  */
+
+.arrow {
+  padding-right: 4.6%;
+  position: relative;
+}
+
+.arrow:after {
+  content: '';
+  display: inline-block;
+  width: 18rpx;
+  height: 18rpx;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  margin-top: -10rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-style: solid;
+  border-color: #d2d2d2;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+
+.add-orange-line {
+  background: url('../images/other/orange_line@3x.png') #fff;
+  background-size: 4rpx;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.add-purple-line {
+  background: url('../images/other/purple_line@3x.png') #fff;
+  background-size: 4rpx;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15em 0.4em;
+  min-width: 8px;
+  border-radius: 18px;
+  background-color: #e64340;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.badge-dot {
+  padding: 0.4em;
+  min-width: 0;
+}
+
+.status-box {
+  width: 106rpx;
+  height: 40rpx;
+  line-height: 42rpx;
+  border-radius: 4rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+}
+
+/*橘色背景  */
+
+.orange {
+  background-color: #ffc250;
+}
+
+.purple {
+  background-color: #b3acff;
+}
+
+.green {
+  background-color: #c6d764;
+}
+
+.font-orange {
+  color: #ffc250;
+}
+
+.font-purple {
+  color: #b8b2fe;
+}

@@ -1,0 +1,33 @@
+<!--cart-cell.wxml-->
+<template name="cart-cell">  
+<view class="cart-cell-box" data-id="{{id}}">
+  <view class="cart-cell-item-box" data-id="{{id}}" style="transform:translateX({{offsetX}}px);-webkit-transform:translateX({{offsetX}}px);" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
+    <view class="cart-cell-hd" bindtap="toggleSelect" data-id="{{id}}" data-status="{{selectStatus}}">
+      <image src="../../../../../images/icon/select@3x.png" wx:if="{{selectStatus}}" class="icon-mid"></image>
+      <image src="'../../../../../images/icon/unselect@3x.png" wx:else class="icon-mid " ></image>
+    </view>
+    <view class="cart-cell-bd">
+      <view class="cart-cell-bd-hd">
+        <image src="{{product_img}}"></image>
+      </view>
+      <view class="cart-cell-bd-bd">
+        <view class="multi-line-list">
+          <view class="multi-line-list-item title">{{description}}</view>
+          <view class="multi-line-list-item">规格: {{specification}}</view>
+          <view class="multi-line-list-item">押金: ¥{{product_guarantee}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="cart-cell-ft">
+      <view class="cart-cell-ft-hd " bindtap="changeCounts"  data-id="{{id}}">-</view>
+      <view class="cart-cell-ft-bd">
+       <input type="number" class="input-count" value="{{counts}}"  />
+      </view>
+      <view class="cart-cell-ft-ft " bindtap="changeCounts" data-id="{{id}}" data-type="add">+</view>
+    </view>
+  </view>
+  <view class="cart-cell-del-box">
+    <image src="../../../../../images/icon/delete@3x.png"></image>
+  </view>
+</view>
+ </template>

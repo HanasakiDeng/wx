@@ -1,0 +1,14 @@
+<!--my-deposit.wxml-->
+<!--归还弹框模板  -->
+<import src="../tpls/dialog/dialog.wxml"></import>
+<!--我的押金  -->
+  <view class="container" style="background: url('../../images/bg/deposit@3x.png'); background-size: 100% 100%;background-repeat: no-repeat;background-origin:padding-box">
+    <view class="back-word">退款协议</view>
+    <view class="back-num"> ¥{{200}}</view>
+    <view class="btn-area">
+      <button class="back-money" bindtap="showOrHideDialog">退押金</button>
+    </view>
+  </view>
+  <template is='dialog' data="{{...dialogItem}}"></template>
+
+

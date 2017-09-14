@@ -1,0 +1,20 @@
+<!--success.wxml-->
+<template name="success" data="{{...item}}">
+  <view class="pg-hd"></view>
+<view class="container-pd">
+  <view class="card improve-pos">
+    <view class="card-bd">
+      <view class="card-bd-icon">
+        <image src="../../images/icon/select@3x.png"></image>
+      </view>
+      <view class="card-bd-desc">{{info}}</view>
+    </view>
+    <view class="card-ft">
+      {{tip}}
+    </view>
+  </view>
+  <view class="card-btn-area">
+    <button class="btn-success  btn-sm-plus" bindtap="toIndex">返回首页</button>
+  </view>
+</view>
+</template>

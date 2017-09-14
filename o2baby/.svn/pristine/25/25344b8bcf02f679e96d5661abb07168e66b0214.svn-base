@@ -1,0 +1,65 @@
+/* home.wxss */
+
+.foot {
+  position: absolute;
+  height: 202rpx;
+  bottom: 0;
+  width: 100%;
+}
+
+.line1 {
+  display: flex;
+  display: -webkit-flex;
+  height: 72rpx;
+  line-height: 72rpx;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+image {
+  width: 72rpx;
+  height: 72rpx;
+}
+
+.left-bottom {
+  text-align: center;
+  align-self: flex-start;
+  margin-top: 24rpx;
+  margin-left: 3.7%;
+}
+
+.line2 {
+  display: flex;
+  display: -webkit-flex;
+  height: 130rpx;
+  line-height: 130rpx;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+}
+
+.right-bottom-top {
+  margin-right: 3.7%;
+}
+
+.right-bottom {
+  margin-top: 24rpx;
+  margin-right: 3.7%;
+}
+
+.center-bottom {
+  margin-top: 20rpx;
+  width: 50%;
+}
+
+.badge-pos {
+  position: absolute;
+  top: -2rpx;
+  right: 20rpx;
+}
+
+.display-none {
+  display: none;
+}

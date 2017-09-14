@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<!--index.wxml-->
+<view class="container-pd">
+  带有头部的卡片样式
+  <view class="card">
+    <view class="card-item">
+      <view class="card-item-hd">标题</view>
+      <view class="card-item-ft arrow">说明文字</view>
+    </view>
+    <view class="card-item">
+      <view class="card-item-hd">标题</view>
+      <view class="card-item-ft arrow">说明文字</view>
+    </view>
+    <view class="card-item">
+      <view class="card-item-hd">标题</view>
+      <view class="card-item-ft arrow">说明文字</view>
+    </view>
+    <view class="card-item" style="padding:0;">
+      <view class="card-item-bd-img"></view>
+      <view class="card-item-bd-desc">
+        <view class="card-bd-desc-text">标题</view>
+        <view class="card-bd-desc-desc">描述</view>
+      </view>
+    </view>
+    <view class="card-item">
+      <view class="card-item-hd">底部文字</view>
+      <view class="card-item-ft">描述</view>
+    </view>
+    <view class="card-item">
+      <view class="card-item-hd">
+        <image src="../../images/icon/pos@3x.png" class="icon" mode="abstarcFill"></image>
+        标题
+      </view>
+      <view class="card-item-ft">描述</view>
+    </view>
+  </view>
+  带有左边线的卡片样式
+  <view class="card" 
+  style="background:url('../../images/other/orange_line@3x.png') #fff;background-size: 8rpx;background-position: left;background-repeat: no-repeat;">
+    <view class="card-item">
+      <view class="card-item-hd">标题</view>
+      <view class="card-item-ft arrow">自取时间</view>
+    </view>
+    <view class="card-item">
+      <view class="card-item-hd">标题</view>
+      <view class="card-item-ft arrow">获取方式</view>
+    </view>
+    <view class="card-item">
+      <view class="card-item-hd">标题</view>
+      <view class="card-item-ft arrow">自取时间</view>
+    </view>
+  </view>
+  <view class="card " style="background:url('../../images/other/purple_line@3x.png') #fff;background-size: 8rpx;background-position: left;background-repeat: no-repeat;">
+    <view class="card-item">
+      <view class="card-item-hd">标题</view>
+      <view class="card-item-ft arrow">自取时间</view>
+    </view>
+  </view>
+</view>

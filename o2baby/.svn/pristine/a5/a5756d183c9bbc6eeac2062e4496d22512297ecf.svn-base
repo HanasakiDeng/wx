@@ -1,0 +1,21 @@
+@import '../pending/pending.wxss';
+
+.title {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.card-item-hd {
+  flex: 1;
+}
+
+.card-item-bd {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.test {
+  font-size: 22rpx;
+  color: #878787;
+  font-weight: 600;
+}

@@ -1,0 +1,56 @@
+<!--pending.wxml-->
+<!--待收货  -->
+<view class="container-pd">
+  <block wx:for="{{goods}}">
+    <view class="card">
+      <view class="card-item">
+        <view class="card-item-hd">
+          订单号: {{item.listNo}}
+        </view>
+        <view class="card-item-bd"></view>
+        <view class="card-item-ft status-box orange">
+          运输中
+        </view>
+      </view>
+      <view class="card-item">
+        <view class="card-item-hd">
+          <view class="card-item-hd-img"></view>
+        </view>
+        <view class="card-item-bd">
+          <view class="sub-list">
+            <view class="sub-list-item">
+              <view class="sub-list-item-bd">
+                <view class="name">产品名称产品名称产品名称产品名称</view>
+              </view>
+              <view class="sub-list-item-ft">
+                <image src="../../images/icon/multip_sign@3x.png" class="icon-sm"></image>
+                21</view>
+            </view>
+            <view class="sub-list-item">
+              <view class="multi-line">
+                <view class="multi-line-item">
+                  <view class="multi-line-item-hd">规格：</view>
+                  <view class="multi-line-item-bd">20L</view>
+                </view>
+                <view class="multi-line-item">
+                  <view class="multi-line-item-hd">规格：</view>
+                  <view class="multi-line-item-bd">20L</view>
+                  <view class="multi-line-item-ft status-box purple">自取</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="card-item-ft">
+        </view>
+      </view>
+      <view class="card-item sum-rent">
+        <view class="card-item-hd"></view>
+        <view class="card-item-bd"></view>
+        <view class="card-item-ft font-orange">租金合计： ¥200.00</view>
+      </view>
+
+
+    </view>
+  </block>
+</view>
