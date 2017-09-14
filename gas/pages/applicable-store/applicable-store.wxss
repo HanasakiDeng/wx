@@ -3,3 +3,16 @@
 .title {
   margin: 0.5rem 1rem;
 }
+
+.list >.list-item {
+  margin-top: 0.6rem;
+}
+
+.list-item >.item {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem 1rem;
+}

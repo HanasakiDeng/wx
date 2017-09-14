@@ -73,8 +73,16 @@ page {
   color: #a9a9a9;
 }
 
+.color-65BBF2 {
+  color: #65bbf2;
+}
+
 .color-000 {
   color: #000;
+}
+
+.bg-fff {
+  background: #fff;
 }
 
 /*字体大小  */
@@ -89,4 +97,8 @@ page {
 
 .fs-13 {
   font-size: 0.65rem;
+}
+
+.fs-22rpx {
+  font-size: 22rpx;
 }

@@ -28,7 +28,7 @@
       </view>
     </view>
     <navigator class='list-item line-height-8vh' url=''>
-      <view class='detail color-ed5965'>查看详情</view>
+      <navigator class='detail color-ed5965' url='../order-detail/order-detail'>查看详情</navigator>
       <view class='arrow-3'></view>
     </navigator>
   </view>

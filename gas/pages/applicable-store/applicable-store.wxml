@@ -3,11 +3,34 @@
   <view class='title'>共2家门店</view>
   <view class='content'>
     <view class='list'>
-      <view class='item'>
-        <view class='item-name'></view>
-        <view class='item-kil'></view>
+      <!--每一项  -->
+      <view class='list-item'>
+        <view class='item'>
+          <view class='item-name'>武汉加油站</view>
+          <view class='item-kilo'>
+            <image class='icon' src='../../../images/icon/pos.png' style='width:1rem;height:1rem;' />
+            <text class='color-a9a9a9 fs-15'>233km</text>
+          </view>
+        </view>
+        <view class='item' style='margin-top:-0.4rem;'>
+          <view class='address color-a9a9a9'>武汉市长汀区万福大街1886号</view>
+          <view class='nav color-ed5965'>导航</view>
+        </view>
       </view>
-      <view class='sub-item'></view>
+      <!--每一项  -->
+      <view class='list-item'>
+        <view class='item'>
+          <view class='item-name'>武汉加油站</view>
+          <view class='item-kilo'>
+            <image class='icon' src='../../../images/icon/pos.png' style='width:1rem;height:1rem;' />
+            <text class='color-a9a9a9 fs-15'>233km</text>
+          </view>
+        </view>
+        <view class='item' style='margin-top:-0.4rem;'>
+          <view class='address color-a9a9a9'>武汉市长汀区万福大街1886号</view>
+          <view class='nav color-ed5965'>导航</view>
+        </view>
+      </view>
     </view>
   </view>
 </view>

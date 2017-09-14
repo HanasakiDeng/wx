@@ -1,0 +1,28 @@
+<!--pages/car/service-catalog/service-catalog.wxml-->
+<import src="../../tpls/store-cell/store-cell"></import>
+<view class='container'>
+  <view class='header'>
+    <image src='../../../images/car.jpg' mode='scaleToFill'></image>
+    <view class='header-desc'>
+      <image src='../../../images/icon/wash-car.png' style='width:1.25rem;height:1.25rem;'></image>
+      <text class='fs-15'>洗车门店</text>
+    </view>
+  </view>
+  <view class='search-list-bar color-a9a9a9 fs-22rpx'>
+    <view class='search-item'>
+      <text>武汉市</text>
+      <image src='../../../images/icon/down.png' style='width:1rem;height:1rem;'></image>
+    </view>
+    <view class='search-item'>
+      <text>全部门店</text>
+      <image src='../../../images/icon/down.png' style='width:1rem;height:1rem;'></image>
+    </view>
+    <view class='search-item'>
+      <text>默认排序</text>
+      <image src='../../../images/icon/down.png' style='width:1rem;height:1rem;'></image>
+    </view>
+  </view>
+   <view class='content'>
+    <template is="store-cell"></template>
+  </view>
+</view>
