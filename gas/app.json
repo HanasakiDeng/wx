@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/tab/gas/gas",
+    "pages/car/feedback/feedback",
     "pages/car/store/store",
     "pages/car/service-catalog/service-catalog",
     "pages/tab/car-service/car-service",
@@ -8,13 +11,11 @@
     "pages/applicable-store/applicable-store",
     "pages/coupon/coupon",
     "pages/my-red-packet/my-red-packet",
-    "pages/index/index",
     "pages/order/order-detail/order-detail",
     "pages/order/reservation/reservation",
     "pages/order/my-order/my-order",
-    "pages/tab/gas/gas",
     "pages/tab/activity/activity",
-    "pages/tpls/store-cell/store-cell" 
+    "pages/tpls/store-cell/store-cell"
   ],
   "window": {
     "backgroundTextStyle": "light",

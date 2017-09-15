@@ -3,42 +3,42 @@
 <view class='container'>
   <view class='header'>
     <view class='catalog'>
-      <view class='catalog-item'>
+      <navigator class='catalog-item' url='../../car/service-catalog/service-catalog?serviceType=1'>
         <image src='../../../images/car.jpg' class='bg'>
         </image>
         <view class='catalog-name'>
           <image src='../../../images/icon/wash-car.png' style='width:1rem;height:1rem;'></image>
           <text class='fs-22rpx'>洗车</text>
         </view>
-      </view>
-      <view class='catalog-item'>
+      </navigator>
+      <navigator class='catalog-item' url='../../car/service-catalog/service-catalog?serviceType=2'>
         <image src='../../../images/car.jpg' class='bg'>
         </image>
         <view class='catalog-name'>
           <image src='../../../images/icon/beauty.png' style='width:1rem;height:1rem;'></image>
           <text class='fs-22rpx'>美容</text>
         </view>
-      </view>
-      <view class='catalog-item'>
+      </navigator>
+      <navigator class='catalog-item' url='../../car/service-catalog/service-catalog?serviceType=3'>
         <image src='../../../images/car.jpg' class='bg'>
         </image>
         <view class='catalog-name'>
           <image src='../../../images/icon/maintain.png' style='width:1rem;height:1rem;'></image>
           <text class='fs-22rpx'>保养</text>
         </view>
-      </view>
-      <view class='catalog-item'>
+      </navigator>
+      <navigator class='catalog-item' url='../../car/service-catalog/service-catalog?serviceType=4'>
         <image src='../../../images/car.jpg' class='bg'>
         </image>
         <view class='catalog-name'>
           <image src='../../../images/icon/repaire.png' style='width:1rem;height:1rem;'></image>
           <text class='fs-22rpx'>维修</text>
         </view>
-      </view>
+      </navigator>
     </view>
     <view class='search-list-bar color-a9a9a9 fs-22rpx'>
       <view class='search-item'>
-        <text>武汉市</text>
+        <text>上海市</text>
         <image src='../../../images/icon/down.png' style='width:1rem;height:1rem;'></image>
       </view>
       <view class='search-item'>

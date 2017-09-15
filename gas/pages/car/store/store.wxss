@@ -19,9 +19,9 @@ swiper {
 
 .complaint {
   position: fixed;
-  top:5%;
-  left:0;
-  right:0;
+  top: 5%;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -63,9 +63,9 @@ swiper {
   text-align: center;
 }
 
-.menu-name:active {
+/* .menu-name:active {
   color: #ed5965;
-}
+} */
 
 .menu-name:last-child {
   border-bottom: 1px solid #e2e2e2;
@@ -83,10 +83,12 @@ swiper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-top: 0.5rem;
 }
-.product-cell{
+
+.product-cell {
   line-height: 1.2rem;
-  padding-right:0.5rem;
+  padding-right: 0.5rem;
 }
 
 .check {
@@ -94,6 +96,14 @@ swiper {
 }
 
 .product >.price {
-  text-decoration: line-through;
 }
 
+.real-price {
+  line-height: 1.5rem;
+  font-weight: bold;
+}
+
+.original-price {
+  margin-left: 1rem;
+  text-decoration: line-through;
+}

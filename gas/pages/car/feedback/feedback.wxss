@@ -1,0 +1,17 @@
+/* pages/car/feedback/feedback.wxss */
+
+textarea {
+  height: 9rem;
+  border-radius: 0.05rem;
+  margin: 0.5rem 0.5rem;
+  background: #f2f2f2;
+}
+
+.placeholder {
+  display: flex;
+  margin: 0.5rem 1rem;
+  color: red;
+  width: 100%;
+  line-height: 9rem;
+  text-align: center;
+}

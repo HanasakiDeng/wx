@@ -2,30 +2,55 @@ import { Config } from '../../utils/config.js';
 var markersData = [];
 var amapFile = require('../../libs/amap-wx.js');//如：..­/..­/libs/amap-wx.js;
 
+function Store(data) {
+  this.name = data.name;
+  this.address = data.address;
+  this.location = data.location;
+  this.distance = null;
+}
+
 Page({
   data: {
-    markers: [{
-      iconPath: "../../img/mapicon_navi_s.png",
-      id: 0,
-      latitude: 39.989643,
-      longitude: 116.481028,
-      width: 23,
-      height: 33
-    }, {
-      iconPath: "../../img/mapicon_navi_e.png",
-      id: 0,
-      latitude: 39.90816,
-      longitude: 116.434446,
-      width: 24,
-      height: 34
-    }],
-    distance: '',
-    cost: '',
-    polyline: []
+
   },
   onLoad: function () {
     var that = this;
     var myAmapFun = new amapFile.AMapWX({ key: Config.key });
+    wx.getLocation({
+      success: function (res) {
+        let origin = res.longitude + "," + res.latitude;
+        myAmapFun.getInputtips({
+          types: '010000',
+          keywords: "汽车维修",
+          citylimit: true,
+          city: '上海市',
+          offset: 25,
+          location: origin,
+          success: function (res) {
+            console.log(res);
+            let store = null;
+            let storeList = [];
+            for (let tip of res.tips) {
+              store = new Store(tip);
+              (function (store) {
+                myAmapFun.getDrivingRoute({
+                  origin: origin,
+                  destination: store.location,
+                  success: function (data) {
+                    if (data.paths) {
+                      store.distance = (data.paths[0].distance / 1000).toFixed(2) + 'km'
+                      storeList.push(store);
+                    }
+                  }
+                })
+              })(store)
+            }
+            console.log(storeList);
+          }
+        })
+      },
+    })
+
     myAmapFun.getDrivingRoute({
       origin: '116.481028,39.989643',
       destination: '116.434446,39.90816',
@@ -53,7 +78,7 @@ Page({
         });
         if (data.paths[0] && data.paths[0].distance) {
           that.setData({
-            distance: data.paths[0].distance + '米'
+            distance: (data.paths[0].distance / 1000).toFixed(2) + 'km'
           });
         }
         if (data.taxi_cost) {

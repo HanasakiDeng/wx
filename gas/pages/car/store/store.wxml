@@ -29,7 +29,7 @@
     </view>
     <view class='content'>
       <view class='menu color-a9a9a9'>
-        <view class='menu-name'>洗车</view>
+        <view class="menu-name {{true? 'color-ed5965':''}}">洗车</view>
         <view class='menu-name'>美容</view>
         <view class='menu-name'>保养</view>
         <view class='menu-name'>维修</view>
@@ -46,11 +46,25 @@
             <view class='detail color-a9a9a9'>整车泡沫冲洗干净,轮胎冲洗清洁,车内吸尘, 车外保养
             </view>
             <view class='price'>
-              <text class='real-price'>$28</text>
-              <text class='original-price'>$28</text>
+              <text class='real-price color-ed5965'>¥28</text>
+              <text class='original-price color-a9a9a9'>¥50.00</text>
             </view>
           </view>
         </checkbox-group>
+        <view class='product'>
+          <view class='product-cell'>
+            <view class='name'>
+              标准洗车
+            </view>
+            <view class='detail color-a9a9a9'>整车泡沫冲洗干净,轮胎冲洗清洁,车内吸尘, 车外保养
+            </view>
+            <view class='price'>
+              <text class='real-price color-ed5965'>¥28</text>
+              <text class='original-price color-a9a9a9'>¥50.00</text>
+            </view>
+            <view class='reserve'>预约</view>
+          </view>
+        </view>
       </scroll-view>
     </view>
     <view class='complaint'>

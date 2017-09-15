@@ -20,6 +20,10 @@
   border-radius: 0.5rem;
 }
 
+.catalog-item:last-child {
+  margin-right: 0;
+}
+
 .catalog-name {
   position: relative;
   top: -105%;

@@ -1,0 +1,5 @@
+<!--pages/car/feedback/feedback.wxml-->
+<view class='container'>
+  <view class='header'>问题和意见</view>
+  <textarea placeholder='请输入不少于10个字的描述'   />
+</view>
