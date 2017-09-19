@@ -1,0 +1,94 @@
++
+function(a) {
+    a.fn.slider = function(b) {
+        b = a.extend({},
+        {
+            auto: !1,
+            interval: 6e3
+        },
+        b);
+        var c, d, e = 0,
+        f = this,
+        g = f.find("ul"),
+        h = g.children().length,
+        i = f.find("ol li");
+        return i.click(function() {
+            var c = a(this);
+            e = c.index(),
+            c.addClass("active").siblings().removeClass("active"),
+            b.type ? "fade" == b.type && g.children().stop(!1, !0).filter(".active").fadeOut(function() {
+                g.children().removeClass("active").eq(e).addClass("active").fadeIn()
+            }) : g.stop(!1, !0).animate({
+                marginLeft: 100 * -e + "%"
+            })
+        }),
+        b.auto && (d = setTimeout(c = function() {
+            e = ++e % h,
+            i.eq(e).click(),
+            d = setTimeout(arguments.callee, b.interval)
+        },
+        b.interval), f.mouseenter(function() {
+            clearTimeout(d)
+        }).mouseleave(function() {
+            d = setTimeout(c, b.interval)
+        })),
+        f
+    }
+} (jQuery);
+
+// 积分活动// 图片轮播的效果
+$(function(){
+var slide = $('.slide'),
+    ul = slide.children('ul'),
+    li = ul.children('li'),
+    lien = Math.ceil(li.length/4),
+    tw = slide.width()/4,
+    timer = null,
+    c = 0,
+    t = 3000,
+    left = slide.find('.pre'),
+    right = slide.find('.next');
+
+    ul.css('width', tw*40);
+    $('.btn').css('width', slide.width());
+
+    if(lien <=1){
+        slide.children('.btn').css('display','none');
+    }else{
+        ul.append(li.clone());
+    }
+    function move(){
+        ul.animate({
+            'margin-left':-tw*c
+        });
+    };
+
+    function auto(){
+        if (c >= li.length) {
+            c = 0;
+            ul.css('margin-left',0);
+        }
+        c++;
+        move();
+    };
+    // timer = setInterval(auto, t);
+
+    slide.hover(function() {
+        clearInterval(timer);
+    }, function() {
+        // timer = setInterval(auto,t);
+    });
+    left.click(function(event) {
+        clearInterval(timer);
+        auto();
+    });
+    right.click(function(event) {
+        clearInterval(timer);
+        if (c == 0) {
+                c = li.length;
+                ul.css('margin-left', -tw*c);
+        }
+        c--;
+        move();
+    });
+})

@@ -1,0 +1,16 @@
+(function ($) {
+	$(function(){
+		if ($('#slider').length > 0) {
+			$('#slider').slider({auto:true});
+		}
+		
+		var $table = $('#table-store'), $bd = $table.find('.bd');
+		$table.mouseleave(function(){
+			$bd.hide();
+		}).find('tbody tr').mouseover(function(){
+			var $this = $(this);
+			$bd.show().stop(false, true).css('height', $this.height()-1).animate({top: $this.position().top + 1})
+		});
+		//	$('.counter-box').counterBox();
+	});
+})(jQuery);

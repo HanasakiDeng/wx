@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/tab/gas/gas",
+    
     "pages/car/feedback/feedback",
     "pages/car/store/store",
     "pages/car/service-catalog/service-catalog",

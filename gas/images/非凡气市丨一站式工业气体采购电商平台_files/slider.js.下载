@@ -1,0 +1,79 @@
++
+function(a) {
+    a.fn.slider = function(b) {
+        b = a.extend({},
+        {
+            auto: !1,
+            interval: 6e3
+        },
+        b);
+        var c, d, e = 0,
+        f = this,
+        g = f.find("ul"),
+        h = g.children().length,
+        i = f.find("ol li");
+        return i.click(function() {
+            var c = a(this);
+            e = c.index(),
+            c.addClass("active").siblings().removeClass("active"),
+            b.type ? "fade" == b.type && g.children().stop(!1, !0).filter(".active").fadeOut(function() {
+                g.children().removeClass("active").eq(e).addClass("active").fadeIn()
+            }) : g.stop(!1, !0).animate({
+                marginLeft: 100 * -e + "%"
+            })
+        }),
+        b.auto && (d = setTimeout(c = function() {
+            e = ++e % h,
+            i.eq(e).click(),
+            d = setTimeout(arguments.callee, b.interval)
+        },
+        b.interval), f.mouseenter(function() {
+            clearTimeout(d)
+        }).mouseleave(function() {
+            d = setTimeout(c, b.interval)
+        })),
+        f
+    }
+} (jQuery);
+
+// 积分活动// 图片轮播的效果
+$(function(){
+var c = 0,
+     // 平台动态
+    slider = $('.topnew-slide'),   
+    ulr = slider.children('ul'),
+    lir = ulr.children('li'),
+    th = slider.height()/3,
+    top = slider.siblings('.put').children('.puttop'),
+    bottom = slider.siblings('.put').children('.putdown');
+
+    ulr.css('height', th*30);
+    ulr.append(lir.clone());
+
+    function move(){
+        ulr.animate({
+            'margin-top':-th*c
+        });
+    };
+    // 平台动态
+    function autonew(){
+        if (c >= lir.length) {
+            c = 0;
+            ulr.css('margin-top', 0);
+        }
+        c++;
+        move();
+    };
+    top.click(function(event) {
+        autonew();
+    });
+    bottom.click(function(event) {
+        if (c == 0) {
+                c = lir.length;
+                ulr.css('margin-top', -th*c);
+        }
+        c--;
+        move();
+    });
+})
+

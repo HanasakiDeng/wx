@@ -1,97 +1,44 @@
 import { Config } from '../../utils/config.js';
-var markersData = [];
+// import { QQMapWX } from '../../libs/qqmap-wx-jssdk.js';
 var amapFile = require('../../libs/amap-wx.js');//如：..­/..­/libs/amap-wx.js;
 
-function Store(data) {
-  this.name = data.name;
-  this.address = data.address;
-  this.location = data.location;
-  this.distance = null;
-}
-
+var markersData = [];
 Page({
   data: {
 
   },
   onLoad: function () {
     var that = this;
-    var myAmapFun = new amapFile.AMapWX({ key: Config.key });
-    wx.getLocation({
+    var myAmapFun = new amapFile.AMapWX({ key: Config.gdMapkey });
+    myAmapFun.getPoiAround({
+      // 加油站
+      querytypes: "010100",
+      querykeywords: '加油站',
       success: function (res) {
-        let origin = res.longitude + "," + res.latitude;
-        myAmapFun.getInputtips({
-          types: '010000',
-          keywords: "汽车维修",
-          citylimit: true,
-          city: '上海市',
-          offset: 25,
-          location: origin,
-          success: function (res) {
-            console.log(res);
-            let store = null;
-            let storeList = [];
-            for (let tip of res.tips) {
-              store = new Store(tip);
-              (function (store) {
-                myAmapFun.getDrivingRoute({
-                  origin: origin,
-                  destination: store.location,
-                  success: function (data) {
-                    if (data.paths) {
-                      store.distance = (data.paths[0].distance / 1000).toFixed(2) + 'km'
-                      storeList.push(store);
-                    }
-                  }
-                })
-              })(store)
-            }
-            console.log(storeList);
-          }
-        })
-      },
-    })
-
-    myAmapFun.getDrivingRoute({
-      origin: '116.481028,39.989643',
-      destination: '116.434446,39.90816',
-      success: function (data) {
-        var points = [];
-        console.log(data);
-        if (data.paths && data.paths[0] && data.paths[0].steps) {
-          var steps = data.paths[0].steps;
-          for (var i = 0; i < steps.length; i++) {
-            var poLen = steps[i].polyline.split(';');
-            for (var j = 0; j < poLen.length; j++) {
-              points.push({
-                longitude: parseFloat(poLen[j].split(',')[0]),
-                latitude: parseFloat(poLen[j].split(',')[1])
-              });
-            }
-          }
-        }
-        that.setData({
-          polyline: [{
-            points: points,
-            color: "#0091ff",
-            width: 6
-          }]
-        });
-        if (data.paths[0] && data.paths[0].distance) {
-          that.setData({
-            distance: (data.paths[0].distance / 1000).toFixed(2) + 'km'
-          });
-        }
-        if (data.taxi_cost) {
-          that.setData({
-            cost: '打车约' + parseInt(data.taxi_cost) + '元'
-          });
-        }
-
-      },
-      fail: function (info) {
-
+        console.log(res);
       }
-    })
+    });
+    // 洗车
+    myAmapFun.getPoiAround({
+      querytypes: "010500",
+      success: function (res) {
+        console.log(res);
+      }
+    });
+    // 汽车保养与美容
+    myAmapFun.getPoiAround({
+      querytypes: "010400",
+      success: function (res) {
+        console.log(res);
+      }
+    });
+    //  维修
+    myAmapFun.getPoiAround({
+      querytypes: "030000",
+      success: function (res) {
+        console.log(res);
+      }
+    });
   },
   goDetail: function () {
     wx.navigateTo({
