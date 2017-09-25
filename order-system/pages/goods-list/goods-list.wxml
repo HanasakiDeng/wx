@@ -1,0 +1,72 @@
+<!--pages/goods-list/goods-list.wxml-->
+<view class='page'>
+  <view class='header fs-20'>
+    <view class='section'>
+      山西肉夹馍
+    </view>
+    <view class='tabbar fs-15'>
+      <view class="bar-btn {{activeTabIndex ===0 ?'active':''}}" bindtap='switchTabbar' data-index='0'>商品</view>
+      <view class="bar-btn {{activeTabIndex ===1 ?'active':''}}" bindtap='switchTabbar' data-index='1'>销量</view>
+      <view class="bar-btn {{activeTabIndex ===2 ?'active':''}}" bindtap='switchTabbar' data-index='2'>评价</view>
+    </view>
+  </view>
+  <!-- 类型为扫码过来时，显示桌号 -->
+  <view class='table-info fs-15' wx:if="{{scanType==='scan'}}">当前为10号桌</view>
+  <view class='content'>
+    <view class='menu fs-10'>
+      <view class='menu-item menu-item-active'>热销</view>
+      <view class='menu-item'>优惠</view>
+      <view class='menu-item'>折扣</view>
+      <view class='menu-item'>凉皮水饺</view>
+    </view>
+    <view class='goods-container'>
+      <view class='list-title fs-14 hover-color'>
+        <label class='fs-15 color-000'>热销 </label>大家喜欢吃，才叫美味
+      </view>
+      <!-- <scroll-view scroll-y="{{true}}" style='margin-top:1rem;height:90vh;'> -->
+      <view class='list fs-17'>
+        <block wx:for="{{[0,1,2,3,4,56,7,8,9,9,10]}}">
+          <view class='list-item'>
+            <image src='../../images/bg/banner-1.jpg' mode='scaleToFill'></image>
+            <view class='item-info'>
+              <view class='name'>肉夹馍</view>
+              <view class='goods-desc fs-14 hover-color'>说明
+              </view>
+              <view class='detail'>
+                <view class='price color-red'>￥10.00</view>
+                <view class='cart-oper fs-14'>
+                  <view class='remove' wx:if="{{isSelected}}">-</view>
+                  <view class='count' wx:if="{{isSelected}}">1</view>
+                  <view class='add' bindtap='addToCart'>+</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='footer'>
+    <!--添加商品  -->
+    <block wx:if="{{isSelected}}">
+      <view class='badge fs-10'>1</view>
+      <view class=" cart cart-on">
+        <image src='../../images/icon/cart-on.png' class='icon'></image>
+      </view>
+      <view class='price fs-15 color-fff'>￥200.00</view>
+      <view class="btn btn-active">
+        下单
+      </view>
+    </block>
+    <!--未添加商品时  -->
+    <block wx:else>
+      <view class=" cart cart-off">
+        <image src='../../images/icon/cart-off.png' class='icon'></image>
+      </view>
+      <view class='price fs-15 color-7C807F '>未选择商品</view>
+      <view class="btn btn-default">
+        <text>请选择</text>
+      </view>
+    </block>
+  </view>
+</view>

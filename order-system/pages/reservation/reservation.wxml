@@ -1,0 +1,77 @@
+<!--pages/reservation/reservation.wxml-->
+
+<view class='page'>
+  <view class='content fs-15'>
+    <scroll-view scroll-y="{{true}}" style='height:90vh;'>
+      <form bindsubmit='orderTable'>
+        <view class='card'>
+          <view class='card-item'>
+            <view class='title'>预定日期：</view>
+            <view class='name'>
+              <picker mode="date" value="{{date}}" start="2017-9-23" end="2017-10-01" bindchange="bindDateChange">
+                <view class="{{date?'picker':'hover-color'}}">
+                  {{date?date:'请选择预定日期'}}
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class='card-item'>
+            <view class='title'>
+              <label class='color-red'> * </label>联系人：</view>
+            <view class='name'>
+              <input type='text' placeholder='请填写联系人(必填)'></input>
+            </view>
+          </view>
+          <view class='card-item'>
+            <view class='title'>
+              <label class='color-red'> * </label>手机号：</view>
+            <view class='name'>
+              <input type='text' placeholder='请填写手机号（必填）'></input>
+            </view>
+          </view>
+        </view>
+        <view class='room-type-container' wx:if="{{orderType !== '2'}}">
+          <view class='room-type-title'>选择桌号</view>
+          <view class='room-type-item'>
+            <view class='type-name'>雅间</view>
+            <view class='desc fs-10 hover-color'>￥200.00起订</view>
+            <view class='table-container'>
+              <block wx:for="{{validTableList}}" wx:index="index">
+                <view class="{{item.checked ?'table table-active':'table'}}" bindtap="chooseTable" data-index="{{index}}" data-checked="{{item.checked}}">
+                  <view class='tableNo'>{{item.tableNo}}</view>
+                  <view calss="time-at">{{item.timeAt}}</view>
+                </view>
+              </block>
+            </view>
+          </view>
+          <view class='room-type-item'>
+            <view class='type-name'>大厅</view>
+            <view class='desc fs-10 hover-color'>￥20.00起订</view>
+            <view class='table-container'>
+              <block wx:for="{{validTableList}}">
+                <view class='table'>
+                  <view class='tableNo'>{{item.tableNo}}</view>
+                  <view calss="time-at">{{item.timeAt}}</view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </view>
+        <navigator url='../goods-list/goods-list' class='card' wx:if="{{orderType !=='0'}}">
+          <view class='card-item'>
+            <view class='title'>
+              <image src="../../images/icon/order-1.png" class='icon-mid'></image>
+              <view style='margin-left:0.25rem;'>进入店铺</view>
+            </view>
+            <view class='arrow'>
+              <image src='../../images/icon/arrow-right.png' class='icon'></image>
+            </view>
+          </view>
+        </navigator>
+      </form>
+    </scroll-view>
+  </view>
+  <view class='footer' wx:if="{{orderType === '0'}}">
+    预定
+  </view>
+</view>

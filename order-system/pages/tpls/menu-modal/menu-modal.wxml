@@ -1,0 +1,12 @@
+<!--pages/tpls/menu-modal.wxml-->
+<!--菜单弹框  -->
+<template name="menu-modal">
+  <!--使用模板所需传递参数 showedRadioGroup 代表 是否显示   -->
+  <view class="mask" wx:if="{{showMenu}}">
+  </view>
+  <view class="modal-menu" wx:if="{{showMenu}}" bindtap='hideModal'>
+    <navigator class='modal-menu-item' url='../reservation/reservation?orderType=0'>预定桌台</navigator>
+    <navigator class='modal-menu-item' url='../reservation/reservation?orderType=1'>预定桌台并点餐</navigator>
+    <navigator class='modal-menu-item' url='../reservation/reservation?orderType=2'>点餐自提</navigator>
+  </view>
+</template>

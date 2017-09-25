@@ -1,0 +1,106 @@
+/* pages/mutil-index/mutil-index.wxss */
+
+swiper-item >image {
+  width: 100%;
+}
+
+.banner {
+  height: 30vh;
+}
+
+/*店铺列表  */
+
+.content {
+  margin-top: 1rem;
+}
+
+.list-item {
+  margin-bottom: 0.4rem;
+  background-color: #fff;
+}
+
+.shop-list {
+  box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.32);
+}
+
+.shop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px dashed #e2e2e2;
+}
+
+.shop:last-child {
+  border: none;
+}
+
+/*其他增加内容显示  */
+
+.other {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.shop >.center {
+  margin-left: 0.5rem;
+  flex: 1;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.center >.item {
+  line-height: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item >.sub-item {
+  line-height: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 1px solid #e2e2e2;
+  padding: 0 0.3rem;
+}
+
+.sub-item:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.shop >.right {
+  align-self: flex-start;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-item {
+  margin-right: 0.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #6da33b;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.desc {
+  margin-left: 0.2rem;
+}
+
+.menu-item:last-child {
+  background: #e38c3c;
+  margin-right: 0rem;
+}
+
+.star-box {
+  width: 5rem;
+  height: 2rem;
+}

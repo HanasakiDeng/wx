@@ -1,0 +1,55 @@
+<!--index.wxml-->
+<!--单首页  -->
+<!--预定模板  -->
+<import src='../tpls/menu-modal/menu-modal.wxml'></import>
+<template is="menu-modal" data="{{showMenu}}"></template>
+<view class='page'>
+  <view class='header'>
+    <swiper class='banner' indicator-dots='{{true}}' indicator-active-color='rgba(255,255,255,.3)'>
+      <block wx:for="{{adImageList}}">
+        <swiper-item>
+          <image src='{{item.imageUrl}}' mode='aspectFit'></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!--菜单部分  -->
+  <view class='menu fs-15'>
+    <view class='menu-item' bindtap='scan'>
+      <image src='../../images/icon/scan.png' class='icon'></image>
+      扫码
+    </view>
+    <view class='menu-item' bindtap='reserve'>
+      <image src='../../images/icon/reservation.png' class='icon'></image>
+      预定
+    </view>
+  </view>
+  <!--基本信息内容  -->
+  <view class='content'>
+    <scroll-view scroll-y="{{true}}">
+      <view class='list fs-15'>
+        <!--简介  -->
+        <view class='nav'>
+          <view class='introduction'>
+            茉莉餐厅是一家全国连锁电影主题餐厅，24小时经营以港式粤菜为基础的中西融合菜，特聘香港融合菜大师主理，打造新派主题时尚餐厅。它专业的厨师团队，开发和研究新派融合菜，定期推出特色菜品，聘请专业艺术团队研发造型，让茉莉每一款菜品成为一件艺术品，让客人感受别样的饮食文化
+          </view>
+        </view>
+        <!--地址  -->
+        <view class='list-item'>
+          <image src='../../images/icon/address.png' class='icon'></image>
+          <text class='desc'>上海市浦东新区</text>
+        </view>
+        <!--营业时间  -->
+        <view class='list-item'>
+          <image src='../../images/icon/time.png' class='icon'></image>
+          <text class='desc'>9:00-22:00</text>
+        </view>
+        <!--电话  -->
+        <view class='list-item'>
+          <image src='../../images/icon/phone.png' class='icon'></image>
+          <text class='desc' style='border:none;'>0167-2334-123</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

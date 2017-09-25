@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/goods-list/goods-list",
+    "pages/mutil-index/mutil-index",
+    "pages/index/index",
+    "pages/reservation/reservation"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#629aff",
+    "navigationBarTitleText": "订单系统",
+    "navigationBarTextStyle": "white"
+  }
+}
