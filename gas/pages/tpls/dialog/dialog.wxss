@@ -11,7 +11,6 @@
   z-index: 9999;
   color: #000;
 }
-
 .dialog .content {
   display: flex;
   margin: 48px 23px;

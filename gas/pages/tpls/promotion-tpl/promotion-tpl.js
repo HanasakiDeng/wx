@@ -1,25 +1,28 @@
-// pages/my/my.js
-
-
-
-
+// pages/tpls/promotion-tpls/promotion-tpl.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   
+     jsonData:[
+       {
+         width:'100px'
+       }
+     ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let app = getApp();
-    console.log(app.globalData.userInfo);
-    this.setData({
-      userInfo: app.globalData.userInfo
+    const ctx = wx.createCanvasContext('scratchBottomLayout');
+
+    wx.chooseImage({
+      success: function (res) {
+        ctx.drawImage(res.tempFilePaths[0], 0, 0, 150, 100)
+        ctx.draw()
+      }
     })
   },
 

@@ -1,0 +1,14 @@
+<!--推广弹框  -->
+<!-- <template class="promotion-tpl"> -->
+<view class='mask' wx:if="{{showPromotion}}"></view>
+<view class='promotion-modal'>
+  <view class='promotion-title'>截止目前为止,您累计节省99元</view>
+  <!--刮奖区域  -->
+  <view class='scratch-box'>
+    <!--刮奖底层  -->
+    <canvas class='scratch-bottom-layout' canvas-id='scratchBottomLayout' />
+    <!--刮奖最上层  -->
+    <canvas class='scratch-top-layout' canvas-id='scratchTopLayout' bindtouchstart="start" bindtouchmove="move" bindtouchend="end" />
+  </view>
+</view>
+<!-- </template> -->

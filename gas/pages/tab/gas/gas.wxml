@@ -1,2 +1,23 @@
 <!--pages/gas/gas.wxml-->
-<text>pages/gas/gas.wxml</text>
+<!--banner  -->
+<import src="../../tpls/gas-station-tpl/gas-station-tpl"></import>
+<swiper indicator-dots='true' autoplay='true'>
+  <swiper-item>1</swiper-item>
+  <swiper-item>2</swiper-item>
+  <swiper-item>3</swiper-item>
+</swiper>
+<!--内容部分  -->
+<view class='content'>
+  <!--加油站列表显示模板  -->
+  <template is="gas-station-tpl" data="{{gasStaionList}}"></template>
+  <view class='drag-more'>
+    <view class='drag-more-msg fs-13'>
+      点击下拉获取更多加油站
+    </view>
+    <view class='down'>
+      <view class='rapezoid'>
+        <image src='../../../images/icon/up.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

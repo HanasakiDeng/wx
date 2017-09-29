@@ -1,1 +1,60 @@
 /* pages/gas/gas.wxss */
+@import '../../tpls/gas-station-tpl/gas-station-tpl.wxss';
+
+swiper {
+  height: 10rem;
+  background: gainsboro;
+}
+
+.content {
+}
+
+.drag-more-msg {
+  background: #fff;
+  text-align: center;
+  line-height: 2rem;
+}
+
+.down {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.rapezoid {
+  width: 40px;
+  height: 15px;
+  line-height: 30px;
+  background: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.rapezoid::before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  left: -10px;
+  width: 20px;
+  height: 15px;
+  border-top: 15px solid #fff;
+  border-left: 10px solid transparent;
+}
+
+.rapezoid::after {
+  content: "";
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  width: 20px;
+  height: 15px;
+  border-top: 15px solid #fff;
+  border-right: 10px solid transparent;
+}
+
+.rapezoid image {
+  width: 40px;
+  height: 18px;
+}

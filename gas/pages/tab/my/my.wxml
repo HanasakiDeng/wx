@@ -1,13 +1,13 @@
 <!--pages/my/my.wxml-->
 <view class='container'>
-  <image src='../../../images/header.png' class='header-bg'></image>
+  <image src='{{userInfo.avatarUrl}}' class='header-bg'></image>
   <!--头部文字显示部分  -->
   <view class='header'>
     <view class='user-header'>
-      <image src='../../../images/header.png' mode='widthFix'></image>
+      <image src='{{userInfo.avatarUrl}}' mode='widthFix'></image>
     </view>
     <view class='user-info'>
-      <text>加油赞</text>
+      <text>{{userInfo.nickName}}</text>
       <text>13564715036</text>
     </view>
     <view class='right arrow'>

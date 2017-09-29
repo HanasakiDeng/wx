@@ -1,0 +1,3 @@
+<import src="../tpls/dialog/dialog.wxml"></import>
+
+<template is="dialog" data="{{...dialog}}"></template>
