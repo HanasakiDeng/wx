@@ -36,8 +36,6 @@ Page({
     // 汽车保养与美容
     myAmapFun.getPoiAround({
       querytypes: "010400",
-      offset: 10,
-      page: 2,
       success: function (res) {
         console.log(res);
         var store = null;

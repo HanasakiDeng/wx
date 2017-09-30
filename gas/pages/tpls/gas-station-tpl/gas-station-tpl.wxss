@@ -14,7 +14,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;  
+  align-items: center;
+}
+
+.station-list-item >.item-line .hd {
+  display: flex;
+  flex: 1;
 }
 
 .station-list-item >.item-line .ft {
@@ -22,4 +27,10 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+}
+
+.text-over {
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
 }

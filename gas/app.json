@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/test/test",
-    "pages/tpls/promotion-tpls/promotion-tpl",
     "pages/tab/gas/gas",
+    "pages/tpls/promotion-tpl/promotion-tpl",
     "pages/tab/car-service/car-service",
     "pages/tab/activity/activity",
     "pages/tab/my/my",
@@ -15,12 +14,13 @@
     "pages/my-red-packet/my-red-packet",
     "pages/order/order-detail/order-detail",
     "pages/order/reservation/reservation",
-    "pages/order/my-order/my-order"
+    "pages/order/my-order/my-order",
+    "pages/navigation/navigation"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#36353A",
-    "navigationBarTitleText": "气",
+    "navigationBarTitleText": "加油赞",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

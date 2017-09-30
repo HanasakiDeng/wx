@@ -1,19 +1,20 @@
 // map.js
-import MyDialog from '../tpls/dialog/dialog.js';
+import Dialog from '../components/dialog/dialog.js';
 Page({
   data: {
   },
   onLoad() {
-    new MyDialog(this, {
-      content: '测试文本',
-      confirmText: '确定',
-      cancelText: '取消',
+    let dialog = new Dialog(this, {
+      content: '您确定要删除此数据么?',
+      title: '警告',
+      iconType: 'warn',
       success: (res) => {
-        if(res.confirm){
+        if (res.confirm) {
           console.log('您点击了确定按钮');
+          dialog.showDialog();
         }
-        if(res.cancel){
-          console.log('您点击了取消按钮');
+        if (res.cancel) {
+          dialog.hideDialog();
         }
       }
     })

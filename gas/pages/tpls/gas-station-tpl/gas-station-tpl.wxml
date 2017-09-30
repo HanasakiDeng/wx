@@ -1,22 +1,22 @@
 <!--pages/tpls/gas-station-tpl/gas-station-tpl.wxml-->
 <template name="gas-station-tpl">
   <view class='station-list'>
-    <block wx:for="{{gasStaionList}}">
+    <block wx:for="{{gasStationList}}">
       <view class='station-list-item'>
         <view class='item-line'>
           <!--加油站名字  -->
-          <view class='hd '>{{item.name}}</view>
+          <view class='hd'>{{item.name}}</view>
           <!--距离  -->
-          <view class='ft color-a9a9a9 fs-15'>{{item.distance}}km</view>
-        </view>
-        <view class='item-line'>
-          <view class='hd color-a9a9a9'>{{item.address}}</view>
-          <view class='ft color-ed5965'>
-            <image src='../../../images/icon/navigation.png' class='icon'></image>
-            <text style='text-indent:0.25rem;'>导航</text>
+          <view class='ft color-a9a9a9 fs-15'>{{item.distance}}{{item.unit}}</view>
+          </view>
+          <view class='item-line'>
+            <view class='hd color-a9a9a9 text-over'>{{item.address}}</view>
+            <view class='ft color-ed5965' data-id="{{item.id}}" data-name="{{item.name}}"  data-location='{{item.location}}' bindtap='toThere'>
+              <image src='../../../images/icon/navigation.png' class='icon'></image>
+              <text style='text-indent:0.25rem;'>导航</text>
+            </view>
           </view>
         </view>
-      </view>
     </block>
-  </view>
+    </view>
 </template>

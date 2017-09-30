@@ -5,25 +5,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-     jsonData:[
-       {
-         width:'100px'
-       }
-     ]
+    hasDraw: false,
+    startPoint: {
+      x: 0,
+      y: 0,
+    },
+    movePoint: {
+      x: 0,
+      y: 0
+    },
+    ctx: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const ctx = wx.createCanvasContext('scratchBottomLayout');
+    // const ctx = wx.createCanvasContext('scratchBottomLayout');
+    const ctx = wx.createCanvasContext('scratchTopLayout');
+    this.data.ctx = ctx;
+    ctx.fillRect(20, 20, '100%', 250);
+    ctx.draw()
+  },
+  start: function (e) {
+    console.log('start')
+    console.log(e.touches[0]);
+    if (e.changedTouches) {
+      this.data.startPoint.x = e.touches[0].x;
+      this.data.startPoint.y = e.touches[0].y;
+    }
+  },
+  move: function (e) {
+    console.log('move');
+    const ctx = this.data.ctx;
+    console.log(e.changedTouches[0]);
+    if (!this.data.hasDraw) {
 
-    wx.chooseImage({
-      success: function (res) {
-        ctx.drawImage(res.tempFilePaths[0], 0, 0, 150, 100)
-        ctx.draw()
-      }
-    })
+    }
+    // ctx.setGlobalAlpha(0);
+    if (e.changedTouches) {
+      ctx.clearRect(10, 10, 150, 75)
+
+    }
+  },
+  end: function (e) {
+    console.log('end')
+    // console.log(e.changedTouches[0])
+
   },
 
   /**

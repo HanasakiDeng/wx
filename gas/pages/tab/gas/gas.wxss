@@ -2,8 +2,12 @@
 @import '../../tpls/gas-station-tpl/gas-station-tpl.wxss';
 
 swiper {
-  height: 10rem;
   background: gainsboro;
+}
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
 }
 
 .content {
