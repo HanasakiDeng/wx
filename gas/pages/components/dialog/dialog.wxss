@@ -1,0 +1,89 @@
+/* dialog.wxss */
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  margin: auto 10%;
+  margin-top: -25%;
+  width: 80%;
+  border-radius: 16rpx;
+  background-color: #fff;
+  align-items: center;
+  z-index: 9999;
+  color: #000;
+}
+
+.dialog .header {
+  padding: 0.5rem 0.5rem;
+  line-height: 1.5rem;
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header icon {
+  line-height: inherit;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header .title {
+  flex: 1;
+  margin-left: 0.5rem;
+}
+
+.dialog .content {
+  display: flex;
+  padding: 1rem 0.5rem;
+  line-height: 1.5rem;
+  justify-content: center;
+  text-align: left;
+  font-size: 30rpx;
+  letter-spacing: 2rpx;
+  color: #454545;
+  text-indent: 1rem;
+}
+
+.dialog .dialog-btn-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+
+.dialog-btn-area .btn-left {
+  padding: 0 0.5rem;
+  height: inherit;
+  flex: 1;
+  border-right: 1rpx solid #e5e5e5;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 -5px 5px 0 rgba(98, 154, 255, 0.18);
+  color: #373c3f;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.dialog-btn-area .btn-right {
+  padding: 0 0.5rem;
+  height: inherit;
+  flex: 1;
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  background-color: #629aff;
+  box-shadow: 0 -5px 5px 0 rgba(98, 154, 255, 0.18);
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.btn-left:active, .btn-right:active {
+  opacity: 0.6;
+}
