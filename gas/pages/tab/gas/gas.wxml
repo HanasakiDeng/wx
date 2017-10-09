@@ -2,7 +2,7 @@
 <!--banner  -->
 <import src="../../tpls/gas-station-tpl/gas-station-tpl"></import>
 <swiper indicator-dots='true' autoplay='true'>
-  <block wx:for="{{bannerList}}">
+  <block wx:for="{{bannerList}}" wx:key="*this">
     <swiper-item>
       <image src='{{item}}' mode="scaleToFill"></image>
     </swiper-item>
@@ -11,7 +11,6 @@
 <!--内容部分  -->
 <view class='content'>
   <!--加油站列表显示模板  -->
-  {{gasStaionList[0].name}}
   <template is="gas-station-tpl" data="{{gasStationList}}"></template>
   <view class='drag-more' wx:if="{{gasStationList}}">
     <view class='drag-more-msg fs-13'>
