@@ -6,11 +6,11 @@ let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
 let session = require('express-session');
-let FileStore = require('session-file-store')(session);
+let RedisStore = require('connect-redis')(session);
 
 let index = require('./routes/index');
 let users = require('./routes/users');
-const prefix = 'gas';
+const prefix = 'api';
 
 let app = express();
 
@@ -22,13 +22,26 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
+app.use(cookieParser("keyboard cat"));
 app.use(express.static(path.join(__dirname, 'public')));
 console.log(path.join(__dirname, 'public'));
+//使用 redis 缓存 session
+app.use(session({
+    store: new RedisStore({
+        host: '127.0.0.1',
+        port: 6379
+    }),
+    secret: 'add-gas',
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 1000 * 3600 * 3 //失效时间为3小时
+    }
+}));
 
 app.use(`/${prefix}/`, index);
-app.use(`/${prefix}/login`, index);
-app.use(`/${prefix}/my`, users);
+// app.use(`/${prefix}/login`, index);
+// app.use(`/${prefix}/my`, users);
 
 
 // catch 404 and forward to error handler

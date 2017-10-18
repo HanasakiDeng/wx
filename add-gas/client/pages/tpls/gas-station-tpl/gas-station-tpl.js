@@ -1,5 +1,4 @@
-import { CONFIG } from '../../../utils/config.js';
-import {}
+import { config } from '../../../utils/config.js';
 
 /**
  * @class 加油赞单列表操作

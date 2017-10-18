@@ -1,18 +1,21 @@
 let express = require('express');
 let router = express.Router();
 let AddGasController = require('../controllers/tabs/AddGasController');
-let LoginController = require('../controllers/LoginController');
+let TokenController = require('../controllers/TokenController');
 let addGasController = new AddGasController(),
-    loginController = new LoginController();
+    tokenController = new TokenController();
+
+router.post('/', function (req, res, next) {
+    tokenController.doToken(req, res, next);
+    // addGasController.getGasStationList(req, res, next);
+});
 /**
  * 登录入口
  */
-router.get('/login', function (req, res, next) {
-    loginController.getOpenId(req, res, next);
-});
-router.get('/', function (req, res, next) {
-    addGasController.getGasStationList(req, res, next);
-});
+// router.post('/login', function (req, res, next) {
+//     console.log('登录接口ing');
+//     loginController.getOpenId(req, res, next);
+// });
 
 
 module.exports = router;

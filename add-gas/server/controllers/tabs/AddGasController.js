@@ -43,12 +43,13 @@ class AddGasController {
         console.log(sql);
         GasDB.raw(sql).then(function (rows) {
             if (Array.isArray(rows)) {
-                res.status(200).json({res: 1, data: rows[0], msg: '请求成功'});
+                res.json({res: 1, data: rows[0], msg: '请求成功'});
             }
         }).catch(function (error) {
             console.error(error);
             res.json({res: 0, msg: '请求失败'});
         });
+
     }
 
     getQuerySql(resBody) {
