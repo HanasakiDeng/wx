@@ -47,7 +47,6 @@ class Token {
       success: function (res) {
 
         console.log(res.code);
-
         wx.request({
           url: that.tokenUrl,
           method: 'POST',

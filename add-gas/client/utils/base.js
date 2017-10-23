@@ -32,7 +32,10 @@ class Base {
 
       success: function (res) {
         //请求成功的情况
-       
+       if(res.statusCode.startWith(2)){
+         typeof params.success === 'function' && params.success(res.data);
+
+       }
        
       },
 
