@@ -1,25 +1,30 @@
-import { config } from '../../../utils/config.js';
+import { Config } from '../../../utils/config.js';
+import { Base } from '../../../utils/base.js';
 
 /**
  * @class 加油赞单列表操作
  */
-class GasStation {
+class GasStation extends Base {
   constructor(context) {
+    super();
     this.context = context;
     this.context.toThere = this.toThere.bind(this);
   }
   //获取附近加油站信息
-  getStationList() {
+  getStationList(currentOffset) {
+
     let self = this;
     wx.getLocation({
-      success: function (res) {
-       
-        gdMap.getPoiAround({
-          querykeywords: '加油站',
-          querytypes: '010100',
-          location: res.longitude + ',' + res.latitude,
-          success: function (data) {
-            console.log(data.poisData);
+      success: (res) => {
+        this.request({
+          url: Config.GAS_STATION_URL,
+          data: {
+            latitude: res.latitude,
+            longitude: res.longitude,
+            currentOffset: currentOffset,
+          },
+          method: 'GET',
+          success: function (res) {
             let gasStationList = [];
             for (let item of data.poisData) {
               // 地址处理 
@@ -31,17 +36,14 @@ class GasStation {
               } else {
                 item.unit = 'm';
               }
-              gasStationList.push(item);
+              gasStationList.push(item);4
             }
-            console.log(gasStationList);
-            self.context.setData({
-              gasStationList: gasStationList
-            });
           }
         });
-      },
-    })
+      }
+    });
   }
+
   //跳转至导航页面
   toThere(e) {
     console.log(e);

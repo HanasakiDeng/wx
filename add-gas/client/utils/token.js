@@ -10,6 +10,7 @@ class Token {
 
   verify() {
     var token = wx.getStorageSync('token');
+    console.log(token);
     if (!token) {
       // 获取服务器令牌接口
       this.getTokenFromServer();
@@ -54,13 +55,12 @@ class Token {
             code: res.code
           },
           success: function (res) {
-            console.log(res.data);
-            let token = res.data.data.token;
-            if(res.data.statusCode === 1){
+          
+            if(res.statusCode === '200'){
+              console.log(res.data);
+              let token = res.data.token;
               wx.setStorageSync('token', token);
               callBack && callBack(token);
-            }else{
-              console.log(res.data.msg)
             }
           }
         });
@@ -71,5 +71,4 @@ class Token {
     })
   }
 }
-
 export { Token }

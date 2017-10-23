@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="print1">打印1</button>
+<button id="print2">打印2</button>
+
+
+<script>
+
+    window.onload = function () {
+
+        document.querySelector('#print1').onclick = function (event) {
+            printHtml('<img src="http://iot.ziyun-cloud.net/pic_proxy/qrcode/265/2.png" alt="2.png"  class="img" style="width:200px;height:200px;" /> ' +
+                '<span>2.png</span>');
+        }
+        document.querySelector('#print2').onclick = function (event) {
+            printHtml('<img src="http://iot.ziyun-cloud.net/pic_proxy/qrcode/562/5.png" alt="5.png" class="img" style="width:200px;height:200px;" />' +
+                '<span>5.png</span>');
+        }
+    }
+
+    /**
+     * 打印操作
+     * @param html html标签元素
+     */
+    function printHtml(html) {
+        var newWindow = window.open('about:blank');
+        if (newWindow !== null) {
+            newWindow.document.body.innerHTML = html;
+            newWindow.document.querySelector('.img').onload = function () {
+                console.log('图片加载成功');
+                newWindow.print();
+            }
+        } else {
+            alert('请关闭之前打印页面');
+        }
+
+
+    }
+</script>
+</body>
+</html>

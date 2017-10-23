@@ -1,7 +1,9 @@
 let axios = require('axios'),
     uuidV1 = require('uuid/v1');
 
-let Session = require('../common/session');
+let RedisClient = require('../common/redis');
+
+let Constants = require('../common/constants');
 
 let TUser = require('../tools/gas/TUser');
 let tUser = new TUser();
@@ -41,32 +43,28 @@ class TokenController {
             .then(function (rs) {
                 let openId = rs.data.openid,
                     sessionKey = rs.data.session_key,
-                    token = uuidV1(openId + sessionKey);
+                    token = uuidV1(openId + sessionKey).split('-').join(''); //去除连接符
 
                 tUser.queryUserIsExitByUserId(openId).then(function (rows) {
+                    //保存 redis token
 
                     //存在情况,直接返回token
                     if (rows[0].num === 1) {
 
-                        res.json({statusCode: 1, data: {token: token}});
+                        res.status(200).json({token: token});
 
                     } else { //不存在,插入用户信息
                         tUser.insertUser(openId).then(function (rows) {
                             res.json({statusCode: 1, data: {token: token}});
-                        })
+                        });
                     }
-                    //保存 session token
-                    Session.set(token, {
-                        openId: openId,
-                        token: token
-                    });
-
+                    RedisClient.set(token, openId);
                 });
             })
             .catch(function (err) {
                 console.log(err);
             });
-        next();
+
     }
 
     /**
@@ -77,15 +75,15 @@ class TokenController {
      */
     verify(req, res, next) {
         if (req.body.token) {
-            Session.get(req.body.token, function (object) {
-                if (object.token === req.body.token) {
-                    res.json({statusCode: 1, isValid: 1}) // 1代表有效,0代表失效
+            RedisClient.get(req.body.token, function (rs) {
+                if (rs !== null) {
+                    res.json({isValid: 1}) // 1代表有效,0代表失效
                 } else {
-                    res.json({statusCode: 1, isValid: 0})
+                    res.status(401).json({isValid: 0})
                 }
             })
         } else {
-            res.json({statusCode: 0, msg: '参数不匹配'});
+            res.status(403).json({msg: '参数不匹配'});
         }
     }
 
