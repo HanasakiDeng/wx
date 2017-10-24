@@ -10,9 +10,9 @@ class GasStation extends Base {
     this.context = context;
     this.context.toThere = this.toThere.bind(this);
   }
+ 
   //获取附近加油站信息
   getStationList(currentOffset) {
-
     let self = this;
     wx.getLocation({
       success: (res) => {
@@ -24,20 +24,33 @@ class GasStation extends Base {
             currentOffset: currentOffset,
           },
           method: 'GET',
-          success: function (res) {
-            let gasStationList = [];
-            for (let item of data.poisData) {
-              // 地址处理 
-              item.address = item.cityname + item.adname + item.address;
-              item.originLocation = res.longitude + ',' + res.latitude
-              if (item.distance >= 1000) {
-                item.unit = 'km';
-                item.distance = (item.distance / 1000).toFixed(2);
-              } else {
+          success: function (rs) {
+            console.log(rs);
+            //所获取数据
+            let gasStationList = rs.gasStationList;
+
+            //数组遍历操作
+            gasStationList.map(function (item, index, thisArray) {
+              item.address = item.city + item.district + item.address;
+              item.originLocation = res.longitude + ',' + res.latitude;
+              //距离操作,后台传递数值为千米为单位
+              item.distance = (parseFloat(item.distance)).toFixed(2);
+              if (item.distance < 1) {
                 item.unit = 'm';
+                item.distance = (item.distance * 1000);
+              } else {
+                item.unit = 'km';
               }
-              gasStationList.push(item);4
+            });
+
+            //非第一次加载,数组合并;
+            if (self.context.data.hasOwnProperty('gasStationList')) {
+              gasStationList = self.context.data.gasStationList.concat(gasStationList);
             }
+            //绑定到页面数据
+            self.context.setData({
+              gasStationList: gasStationList
+            })
           }
         });
       }

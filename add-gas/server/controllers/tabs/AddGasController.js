@@ -1,5 +1,6 @@
 let TGasStation = require('../../tools/gas/TGasStation');
 let tGasStation = new TGasStation();
+let RedisClient = require('../../common/redis');
 
 /**
  * @class 加油Tab栏控制层 <br>
@@ -16,23 +17,32 @@ class AddGasController {
      * @param next 下一路由回调对象
      */
     getGasStationList(req, res, next) {
-        console.log(req.body);
-        let resBody = {
-            latitude: 31.230416,
-            longitude: 121.473701,
-            currentOffset: 0,
-            token: ''
-        };
-        req.body = resBody;
-        tGasStation.queryGasStationList(resBody).then(function (rows) {
-            console.log(rows);
-            res.status(200).json({gasStationList: rows[0]})
-        }).catch(function (error) {
-            console.error(error);
-            res.status(500).json({msg: '查询异常,请稍后重试'});
-        });
+        console.log(req.query);
+        if (req.query) {
+            RedisClient.get(req.query.token, function (rs) {
+                if (rs) {
+                    tGasStation.queryGasStationList(req.query).then(function (rows) {
+                        console.log(rows[0]);
+                        res.json({gasStationList: rows[0]});
+                    }).catch(function (error) {
+                        console.error(error);
+                        res.json({msg: '查询异常,请稍后重试'});
+                    });
+                }else{
+                    res.status(401).json({msg:'当前token失效'});
+                }
+            });
+        } else {
+            res.status(403).json('请求参数有误,请重新尝试');
+        }
     }
 
+    /**
+     * 获取广告
+     * @param req
+     * @param res
+     * @param next
+     */
     getBannersList(req, res, next) {
 
     }

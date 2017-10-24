@@ -13,8 +13,8 @@
   <!--加油站列表显示模板  -->
   <template is="gas-station-tpl" data="{{gasStationList}}"></template>
   <view class='drag-more' wx:if="{{gasStationList}}">
-    <view class='drag-more-msg fs-13'>
-      点击下拉获取更多加油站
+    <view class='drag-more-msg fs-13' bindtap='onPullDown'>
+      下拉获取更多加油站
     </view>
     <view class='down'>
       <view class='rapezoid'>

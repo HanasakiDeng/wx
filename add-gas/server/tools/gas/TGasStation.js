@@ -1,6 +1,6 @@
 const Config = require('./gas_config');
 let GeographyUtils = require('../../common/utils');
-const nearByDistance = 5; //以5公里为界限;
+const nearByDistance = 10; //以5公里为界限;
 const degree = GeographyUtils.calcDegreesByDistance(nearByDistance);
 
 class TGasStation {
@@ -43,6 +43,7 @@ class TGasStation {
                  AND longitude < ${reqBody.longitude} + ${degree}
                  ORDER BY distance ASC
                  LIMIT ${reqBody.currentOffset},5`;
+        console.log(sql);
         return Config.GasDB.raw(sql);
     }
 }

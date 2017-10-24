@@ -34,11 +34,6 @@ app.use(function (req, res, next) {
     next(err);
 });
 
-app.use(function (req, res, next) {
-    let err = new Error('Permission authentication failed');
-    err.status = 401;
-    next(err);
-});
 
 // error handler
 app.use(function (err, req, res, next) {

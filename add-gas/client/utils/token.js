@@ -13,6 +13,7 @@ class Token {
     console.log(token);
     if (!token) {
       // 获取服务器令牌接口
+      console.log('重新获取令牌')
       this.getTokenFromServer();
     } else {
       // 检验令牌是否失效，获取服务器校验令牌接口
@@ -30,8 +31,8 @@ class Token {
         token: token
       },
       success: function (res) {
-        var valid = res.data.isValid;
-        if (!valid) { 
+        console.log(res.data.msg);
+        if (res.statusCode === 401){
           that.getTokenFromServer();
         }
       }
@@ -45,7 +46,6 @@ class Token {
     var that = this;
     wx.login({
       success: function (res) {
-
         console.log(res.code);
         wx.request({
           url: that.tokenUrl,
@@ -54,8 +54,8 @@ class Token {
             code: res.code
           },
           success: function (res) {
-          
-            if(res.statusCode === '200'){
+            console.log(res.statusCode === 200);
+            if(res.statusCode === 200){
               console.log(res.data);
               let token = res.data.token;
               wx.setStorageSync('token', token);

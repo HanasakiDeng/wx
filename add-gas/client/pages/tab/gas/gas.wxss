@@ -3,6 +3,7 @@
 
 swiper {
   background: gainsboro;
+  overflow: hidden;
 }
 
 swiper-item image {
@@ -11,6 +12,7 @@ swiper-item image {
 }
 
 .content {
+ 
 }
 
 .drag-more-msg {

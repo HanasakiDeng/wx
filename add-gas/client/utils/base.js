@@ -21,8 +21,8 @@ class Base {
     if (!params.method) {
       params.method = 'GET';
     }
-    Object.defineProperty(params.data,'token',token);
     params.data.token = token;
+    console.log(params.data);
     wx.request({
       url: params.url,
 
@@ -32,16 +32,23 @@ class Base {
 
       success: function (res) {
         //请求成功的情况
-       if(res.statusCode.startWith(2)){
-         typeof params.success === 'function' && params.success(res.data);
-
-       }
-       
+        if (res.statusCode.toString().startsWith('2')) {
+          console.log("base:res");
+          console.log(res.data);
+          typeof params.success === 'function' && params.success(res.data);
+        }
+        /**
+         * 权限认证失效,重新获取
+         */
+        if (res.statusCode === 401) {
+          this._refetch(params);
+        }
+        //访问被拒 
+        if (res.statusCode === 403) {
+          typeof params.fail === 'function' && params.fail(res.data);
+        }
       },
-
       // 此处fail指的是调用都不成功，比如网络中断，如果此次请求成功到达api内部，由于api内部错误，引起的不
-      // 成功，会走else
-
       fail: function (err) {
         console.log(err);
       }

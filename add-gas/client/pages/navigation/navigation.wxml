@@ -1,7 +1,7 @@
 <!--pages/navigation/navigation.wxml-->
 <view class="map-box">
-  <map id="navi-map" longitude="{{currentLongitude}}" latitude="{{currentLatitude}}" scale='15' markers="{{markers}}" polyline="{{polyline}}"></map>
+  <map id="navi-map" longitude="{{currentLongitude}}" latitude="{{currentLatitude}}" scale='14' markers="{{markers}}" polyline="{{polyline}}"></map>
 </view>
 <view class='text-box'>
-  下滑查看导航详情
+  触摸以查看导航详情
 </view>

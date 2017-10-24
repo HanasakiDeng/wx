@@ -1,7 +1,7 @@
 <!--pages/tpls/gas-station-tpl/gas-station-tpl.wxml-->
 <template name="gas-station-tpl">
   <view class='station-list'>
-    <block wx:for="{{gasStationList}}" wx:key="id">
+    <block wx:for="{{gasStationList}}" wx:key="*this">
       <view class='station-list-item'>
         <view class='item-line'>
           <!--加油站名字  -->

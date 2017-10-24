@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/tab/car-service/car-service",
     "pages/tab/gas/gas",
+    "pages/tab/car-service/car-service",
     "pages/tpls/promotion-tpl/promotion-tpl",
     "pages/tab/activity/activity",
     "pages/tab/my/my",
@@ -21,7 +21,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#36353A",
     "navigationBarTitleText": "加油赞",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#444444",
@@ -53,5 +54,11 @@
         "selectedIconPath": "images/tab/user-active.png"
       }
     ]
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 20000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
   }
 }

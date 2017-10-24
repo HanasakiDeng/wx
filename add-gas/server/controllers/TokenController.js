@@ -51,11 +51,11 @@ class TokenController {
                     //存在情况,直接返回token
                     if (rows[0].num === 1) {
 
-                        res.status(200).json({token: token});
+                        res.json({token: token});
 
                     } else { //不存在,插入用户信息
                         tUser.insertUser(openId).then(function (rows) {
-                            res.json({statusCode: 1, data: {token: token}});
+                            res.json({token: token});
                         });
                     }
                     RedisClient.set(token, openId);
@@ -76,8 +76,10 @@ class TokenController {
     verify(req, res, next) {
         if (req.body.token) {
             RedisClient.get(req.body.token, function (rs) {
-                if (rs !== null) {
-                    res.json({isValid: 1}) // 1代表有效,0代表失效
+                console.log(`rs:`);
+                console.log(rs);
+                if (rs) {
+                    res.status(200).json({msg: '登录状态未过期'});
                 } else {
                     res.status(401).json({isValid: 0})
                 }

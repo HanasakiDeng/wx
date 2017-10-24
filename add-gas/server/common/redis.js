@@ -29,7 +29,8 @@ class RedisClient {
      * @param openId
      */
     static set(tokenId, openId) {
-        client.hmset(tokenId, openId, function (err, res) {
+        client.hmset(tokenId, {openId: openId}, function (err) {
+            console.log(err);
             if (err === null) {
                 console.log('存储session成功');
             }

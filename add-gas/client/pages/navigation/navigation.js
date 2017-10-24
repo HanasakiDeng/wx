@@ -1,4 +1,4 @@
-import { CONFIG } from '../../utils/config.js';
+import { Config } from '../../utils/config.js';
 var amapFile = require('../../libs/amap-wx.js');//如：..­/..­/libs/amap-wx.js;
 
 Page({
@@ -17,17 +17,17 @@ Page({
   init: function (options) {
     let that = this;
     let gasStation = JSON.parse(options.gasStation),
-      destination = gasStation.location.split(','),
-      originLocation = gasStation.originLocation,
-      originLocationArray = originLocation.split(',');
+      originLocationArray = gasStation.originLocation.split(',');
+    console.log(gasStation);
+
     this.setData({
       // 起点坐标
-      originLocation: originLocation,
-      currentLongitude: (parseFloat(originLocationArray[0]) + parseFloat(destination[0])) / 2.000000,
-      currentLatitude: (parseFloat(originLocationArray[1]) + parseFloat(destination[1])) / 2.000000,
-      destination: gasStation.location,
-      desLongitude: destination[0],
-      desLatitude: destination[1],
+      originLocation: gasStation.originLocation,
+      currentLongitude: (parseFloat(originLocationArray[0]) + parseFloat(gasStation.longitude)) / 2.000000,
+      currentLatitude: (parseFloat(originLocationArray[1]) + parseFloat(gasStation.latitude)) / 2.000000,
+      destination: gasStation.longitude + ',' + gasStation.latitude,
+      desLongitude: gasStation.longitude,
+      desLatitude: gasStation.latitude,
 
       //起点终点图标标记
       markers: [{
@@ -40,18 +40,20 @@ Page({
       }, {
         iconPath: "../../images/icon/end.png",
         id: 0,
-        latitude: destination[1],
-        longitude: destination[0],
+        latitude: gasStation.latitude,
+        longitude: gasStation.longitude,
         width: 24,
         height: 34
       }],
     })
     this.getDrivingRoute();
   },
+
   //获取驾车路线
   getDrivingRoute: function () {
     let that = this;
     var myAmapFun = new amapFile.AMapWX({ key: Config.gdMapkey });
+
     myAmapFun.getDrivingRoute({
       origin: that.data.originLocation,
       destination: that.data.destination,
@@ -59,6 +61,7 @@ Page({
         console.log(data);
         var points = [];
         var instructions = [];
+
         if (data.paths && data.paths[0] && data.paths[0].steps) {
           var steps = data.paths[0].steps;
           for (var i = 0; i < steps.length; i++) {
