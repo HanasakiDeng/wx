@@ -21,6 +21,7 @@ Page({
     console.log(gasStation);
 
     this.setData({
+
       // 起点坐标
       originLocation: gasStation.originLocation,
       currentLongitude: (parseFloat(originLocationArray[0]) + parseFloat(gasStation.longitude)) / 2.000000,
@@ -79,8 +80,10 @@ Page({
           instructions: instructions,
           polyline: [{
             points: points,
-            color: "#0091ff",
-            width: 6
+            color: "#008000",
+            width: 6,
+            arrowLine: true,
+            borderColor: '#fff'
           }]
         });
         if (data.paths[0] && data.paths[0].distance) {

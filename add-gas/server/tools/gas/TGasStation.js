@@ -29,10 +29,10 @@ class TGasStation {
 				                      SIN((latitude -${reqBody.latitude}) * PI() / 180),
 				                      2
 			                          )
-		            ) + COS(latitude * PI() / 180) * COS(${reqBody.latitude} * PI() / 180) * POW(
+		             + COS(latitude * PI() / 180) * COS(${reqBody.latitude} * PI() / 180) * POW(
 			        SIN((longitude -${reqBody.longitude}) * PI() / 180),
 			        2
-		            )
+		            ))
 	                ) * 6378.137*10000)/10000 AS distance
                  FROM
 	                 ${this.tableName}

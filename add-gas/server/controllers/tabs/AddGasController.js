@@ -36,7 +36,6 @@ class AddGasController {
             res.status(403).json('请求参数有误,请重新尝试');
         }
     }
-
     /**
      * 获取广告
      * @param req
