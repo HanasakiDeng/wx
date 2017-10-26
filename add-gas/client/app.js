@@ -3,7 +3,6 @@ import {Token} from 'utils/token';
 App({
 
   onLaunch: function (options) {
-    console.log("test");
     let token = new Token();
     token.verify();
   },

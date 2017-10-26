@@ -1,6 +1,6 @@
 <!--pages/navigation/navigation.wxml-->
 <view class="map-box">
-  <map id="navi-map" longitude="{{currentLongitude}}" latitude="{{currentLatitude}}" scale='13' markers="{{markers}}" polyline="{{polyline}}"></map>
+  <map id="navi-map" longitude="{{centerLong}}" latitude="{{centerLat}}" scale='13' markers="{{markers}}" polyline="{{polyline}}"></map>
 </view>
 <view class='distance'>{{distance}}</view>
 <swiper>
