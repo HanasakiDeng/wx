@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/image/image",
     "pages/tab/gas/gas",
     "pages/tab/car-service/car-service",
     "pages/tpls/promotion-tpl/promotion-tpl",

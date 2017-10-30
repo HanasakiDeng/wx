@@ -1,0 +1,3 @@
+<!--pages/image/image.wxml-->
+<button bindtap='chooseImage'>选取图片</button>
+<image src='{{imgPath}}' mode='aspectFit'></image>

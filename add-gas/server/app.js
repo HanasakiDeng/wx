@@ -7,7 +7,7 @@ let bodyParser = require('body-parser');
 
 let index = require('./routes/index');
 let api = require('./routes/api');
-const prefix = 'api';
+
 
 let app = express();
 
@@ -23,8 +23,9 @@ app.use(cookieParser("keyboard cat"));
 app.use(express.static(path.join(__dirname, 'public')));
 console.log(path.join(__dirname, 'public'));
 
-app.use(`/${prefix}/`, index);
-app.use(`/${prefix}/getStationList`, api);
+app.use(`/`, index);
+app.use(`/getStationList`, api);
+app.use(`/upload`,api);
 
 
 // catch 404 and forward to error handler
