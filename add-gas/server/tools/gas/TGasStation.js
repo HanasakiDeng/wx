@@ -1,5 +1,5 @@
 const Config = require('./gas_config');
-let GeographyUtils = require('../../common/utils');
+let GeographyUtils = require('../../common/utils/GeographyUtils');
 const nearByDistance = 10; //以5公里为界限;
 const degree = GeographyUtils.calcDegreesByDistance(nearByDistance);
 

@@ -22,7 +22,7 @@ let redis = require('redis'),
         }
     });
 
-class RedisClient {
+class RedisUtils {
     /**
      * 设置Session
      * @param tokenId
@@ -50,4 +50,4 @@ class RedisClient {
     }
 }
 
-module.exports = RedisClient;
+module.exports = RedisUtils;

@@ -1,4 +1,4 @@
-let Constants = require('../../common/constants');
+let Constants = require('../../common/constants/constants');
 const {mysql} = require('../../config');
 const config = mysql(Constants.GAS_DB_NAME);
 

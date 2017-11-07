@@ -1,1 +1,26 @@
 /* pages/image/image.wxss */
+
+
+.input-box {
+  background: #fff;
+  border-top: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 30rpx;
+  height: 40rpx;
+  padding: 20rpx 20rpx;
+}
+
+.input-box:first-child {
+  border-top: none;
+}
+input{
+  margin-left:20rpx;
+}
+
+button {
+  margin-top:10rpx;
+  flex-grow: 1;
+  align-self: center;
+}

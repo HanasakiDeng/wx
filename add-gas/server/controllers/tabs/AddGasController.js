@@ -1,6 +1,6 @@
 let TGasStation = require('../../tools/gas/TGasStation');
 let tGasStation = new TGasStation();
-let RedisClient = require('../../common/redis');
+let RedisUtils = require('../../common/utils/RedisUtils');
 
 /**
  * @class 加油Tab栏控制层 <br>
@@ -19,7 +19,7 @@ class AddGasController {
     getGasStationList(req, res, next) {
         console.log(req.query);
         if (req.query) {
-            RedisClient.get(req.query.token, function (rs) {
+            RedisUtils.get(req.query.token, function (rs) {
                 if (rs) {
                     tGasStation.queryGasStationList(req.query).then(function (rows) {
                         console.log(rows[0]);

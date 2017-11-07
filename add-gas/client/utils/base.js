@@ -70,6 +70,19 @@ class Base {
     return event.currentTarget.dataset[key];
   }
 
+  uploadFile(){
+    wx.uploadFile({
+      url: '',
+      filePath: '',
+      name: '',
+      header: {},
+      formData: {},
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  }
+
 }
 
 export { Base };

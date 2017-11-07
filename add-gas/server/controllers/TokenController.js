@@ -1,9 +1,9 @@
 let axios = require('axios'),
     uuidV1 = require('uuid/v1');
 
-let RedisClient = require('../common/redis');
+let RedisUtils = require('../common/utils/RedisUtils');
 
-let Constants = require('../common/constants');
+let Constants = require('../common/constants/constants');
 
 let TUser = require('../tools/gas/TUser');
 let tUser = new TUser();
@@ -32,6 +32,7 @@ class TokenController {
      * @param next
      */
     createToken(req, res, next) {
+
         axios.get(Constants.WX_BASE_URL, {
             params: {
                 appid: Constants.APP_ID,
@@ -39,8 +40,7 @@ class TokenController {
                 js_code: req.body.code,
                 grant_type: 'authorization_code'
             }
-        })
-            .then(function (rs) {
+        }).then(function (rs) {
                 let openId = rs.data.openid,
                     sessionKey = rs.data.session_key,
                     token = uuidV1(openId + sessionKey).split('-').join(''); //去除连接符
@@ -75,7 +75,7 @@ class TokenController {
      */
     verify(req, res, next) {
         if (req.body.token) {
-            RedisClient.get(req.body.token, function (rs) {
+            RedisUtils.get(req.body.token, function (rs) {
                 console.log(`rs:`);
                 console.log(rs);
                 if (rs) {

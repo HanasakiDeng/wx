@@ -45,7 +45,6 @@ Page({
                 console.log(res);
               }
             })
-
           } else {
             wx.showModal({
               title: '温馨提示',
@@ -55,5 +54,14 @@ Page({
         }
       },
     })
+  },
+  shot: function (e) {
+    wx.chooseVideo({
+      sourceType: ["camera"],
+      success: function (res) {
+        console.log(res);
+      }
+    })
   }
+
 })

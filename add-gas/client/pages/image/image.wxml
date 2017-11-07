@@ -1,3 +1,15 @@
 <!--pages/image/image.wxml-->
 <button bindtap='chooseImage'>选取图片</button>
 <image src='{{imgPath}}' mode='aspectFit'></image>
+<form bindsubmit='submit' class=''>
+  <view class='input-box'>
+    <view>姓名: </view>
+    <input type='text' placeholder='请输入您的用户名' name="username" />
+  </view>
+  <view class='input-box'>
+    <view>密码: </view>
+    <input type='pwd' placeholder='请输入您的密码' name='pwd' />
+  </view>
+  <button size='mini' form-type='submit'>提交</button>
+</form>
+<button bindtap='shot'>拍摄</button>
