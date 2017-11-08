@@ -16,7 +16,6 @@ Page({
   },
   onLoad: function (options) {
     if (options) {
-
       let gasStation = JSON.parse(options.gasStation);
       this.initData(gasStation);
     }

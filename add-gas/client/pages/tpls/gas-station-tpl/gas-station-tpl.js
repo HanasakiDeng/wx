@@ -64,7 +64,6 @@ class GasStation extends Base {
     wx.navigateTo({
       url: '../../navigation/navigation?gasStation=' + JSON.stringify(gasStation),
     })
-
   }
 }
 export default GasStation;

@@ -10,7 +10,7 @@ const options ={
 }
 let httpsServer = https.createServer(options,app);
 
-const SSL_PORT = 3000;
+const SSL_PORT = 443;
 
 //创建https服务器
 httpsServer.listen(SSL_PORT,function(){
