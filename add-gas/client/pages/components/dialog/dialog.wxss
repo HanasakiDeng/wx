@@ -39,11 +39,10 @@
   padding: 1rem 0.5rem;
   line-height: 1.5rem;
   justify-content: center;
-  text-align: left;
+  align-items: center;
   font-size: 30rpx;
   letter-spacing: 2rpx;
   color: #454545;
-  text-indent: 1rem;
 }
 
 .dialog .dialog-btn-area {
@@ -51,8 +50,8 @@
   justify-content: center;
   align-items: center;
   font-size: 36rpx;
-  height: 2.5rem;
-  line-height: 2.5rem;
+  height: 2rem;
+  line-height: 2rem;
 }
 
 .dialog-btn-area .btn-left {

@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/tab/gas/gas",
+    "pages/test/test",
     "pages/image/image",
+    "pages/tab/gas/gas",
     "pages/tab/car-service/car-service",
     "pages/tpls/promotion-tpl/promotion-tpl",
     "pages/tab/activity/activity",

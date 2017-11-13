@@ -15,7 +15,6 @@ class GeographyUtils {
         let eachDegrees = 111; //单位千米;1度换成距离为111km;
 
         return distance / eachDegrees;
-
     }
 
     /**

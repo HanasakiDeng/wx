@@ -5,8 +5,8 @@ Page({
   },
   onLoad() {
     let dialog = new Dialog(this, {
-      content: '您确定要删除此数据么?',
-      title: '警告',
+      content: '您确定要删除此数据么？',
+      title: '温馨提示',
       iconType: 'warn',
       success: (res) => {
         if (res.confirm) {

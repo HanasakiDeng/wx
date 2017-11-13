@@ -16,7 +16,9 @@ Page({
     console.log(e);
     wx.chooseImage({
       count: 1,
+      sizeType:'compressed ',
       success: function (res) {
+        console.log(res);
         if (res) {
           // 图片文件路径
           let imagePath = res.tempFiles[0].path;
