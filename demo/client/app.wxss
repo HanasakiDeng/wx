@@ -1,0 +1,30 @@
+/**app.wxss**/
+
+.container {
+  display: flex;
+  flex-direction:column;
+  padding: 10rpx 20rpx;
+  font-size: 30rpx;
+  font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+}
+/*向右图标  */
+
+.arrow {
+  padding-right: 6%;
+  position: relative;
+}
+
+.arrow:after {
+  content: '';
+  display: inline-block;
+  width: 18rpx;
+  height: 18rpx;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  margin-top: -10rpx;
+  border-width: 3rpx 3rpx 0 0;
+  border-style: solid;
+  border-color: #e2e2e2;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}

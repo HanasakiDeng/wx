@@ -1,0 +1,15 @@
+<!--dialog.wxml-->
+<template name="dialog">
+  <view wx:if="{{dialog.showDialogStatus}}" class="mask" bindtap="{{hideDialog}}"></view>
+  <view class="dialog" wx:if="{{dialog.showDialogStatus}}">
+    <view class='header' wx:if="{{dialog.title}}">
+      <icon type="{{dialog.iconType}}" size="20" color="{{dialog.iconColor}}" />
+      <view class='title'>{{dialog.title}}</view>
+    </view>
+    <view class="content">{{dialog.content}}</view>
+    <view class="dialog-btn-area">
+      <view class='btn-left' bindtap='cancel' style='color:{{dialog.cancelColor}}' wx:if="{{dialog.showCancel}}">{{dialog.cancelText?dialog.cancelText:'取消'}}</view>
+      <view class='btn-right' bindtap="confirm" style='color:{{dialog.confirmColor}}' bindtap='confirm'>{{dialog.confirmText?dialog.confirmText:'确定'}}</view>
+    </view>
+  </view>
+</template>

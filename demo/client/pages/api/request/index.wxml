@@ -1,0 +1,12 @@
+<!--pages/api/request/index.wxml-->
+<view class='container'>
+  <view class='title'>
+    网络请求接口示例
+  </view>
+  <view class='content'>
+    <navigator class='arrow' url='form-request/form-request'>请求</navigator>
+    <navigator class='arrow'>上传</navigator>
+    <navigator class='arrow'>下载</navigator>
+    <navigator class='arrow'>webSocket</navigator>
+  </view>
+</view>

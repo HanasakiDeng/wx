@@ -1,0 +1,64 @@
+/* pages/api/request/form-request/get/get.wxss */
+
+page {
+  background: #e2e2e2;
+}
+
+.content {
+  margin-top: 10rpx;
+  background: #fff;
+  border-radius: 8rpx;
+}
+
+.toolbar {
+  margin-top:10rpx;
+  display: flex;
+  flex-direction: row nowrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.toolbar image {
+  margin: 10rpx 20rpx 0 0;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.toolbar image:active {
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.325);
+}
+
+.title {
+  padding: 15rpx 15rpx;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.book-list {
+  height: 500px;
+  padding: 8rpx 15rpx;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 0 0 8rpx 8rpx;
+  height: 500px;
+}
+
+.name {
+  margin: 10rpx;
+  color: #317ef3;
+}
+
+.desc {
+  text-overflow: hidden;
+  text-indent: 40rpx;
+  word-break: break-all;
+  white-space: pre-wrap;
+  padding: 5rpx 20rpx;
+}

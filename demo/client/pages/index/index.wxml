@@ -1,0 +1,18 @@
+<!--index.wxml-->
+ <import src='../components/toast/toast.wxml'></import>
+<template is="toast" data="{{showToast}}" /> 
+
+<view class="container">
+  <view class='title'>
+    本demo,诣在帮助自己对接口的使用，以及使用过程中出现的问题进行记录。
+  </view>
+  <view class='content'>
+    <navigator class='arrow' url='../api/request/index' open-type='navigate'>网络</navigator>
+    <navigator class='arrow'>媒体</navigator>
+    <navigator class='arrow'>文件</navigator>
+    <navigator class='arrow'>数据存储</navigator>
+    <navigator class='arrow'>位置</navigator>
+    <navigator class='arrow'>设备</navigator>
+    <navigator class='arrow'>界面</navigator>
+  </view>
+</view>

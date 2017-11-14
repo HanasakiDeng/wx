@@ -1,0 +1,14 @@
+/**index.wxss**/
+@import '../components/toast/toast.wxss';
+.title{
+  text-indent:20rpx;
+  font-size:30rpx;
+}
+.content{
+  margin-top:50rpx;
+}
+.content navigator{
+  border-bottom:1px solid #e2e2e2;
+  padding: 10rpx;
+}
+

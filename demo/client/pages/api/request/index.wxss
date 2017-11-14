@@ -1,0 +1,2 @@
+/* pages/api/request/index.wxss */
+@import '../../index/index.wxss';
