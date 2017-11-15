@@ -1,1 +1,29 @@
 /* pages/api/request/form-request/post/post.wxss */
+
+page {
+  background: #e2e2e2;
+}
+
+.content {
+  margin-top: 10rpx;
+  background: #fff;
+  border-radius: 8rpx;
+}
+
+.content .book {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.book .book-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10rpx 20rpx;
+}
+
+
+

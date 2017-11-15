@@ -1,9 +1,11 @@
 // pages/components/toast/toast.js
 class Toast {
-  constructor() {
+  constructor(msg) {
+    //获取当前页面page对象
     let currentPage = getCurrentPages()[getCurrentPages().length - 1];
+    //设置toast 对象 
     currentPage.setData({
-      showToast: false
+      msg: msg
     })
   }
 }

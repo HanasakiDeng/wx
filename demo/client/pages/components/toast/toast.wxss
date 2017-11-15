@@ -13,6 +13,8 @@
   -webkit-animation-iteration-count: 1;
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
+  transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -24,49 +26,25 @@
     background: rgba(0, 0, 0, 0.90);
   }
 
-  20% {
-    background: rgba(0, 0, 0, 0.70);
-  }
-
-  40% {
-    background: rgba(0, 0, 0, 0.50);
-  }
-
-  60% {
-    background: rgba(0, 0, 0, 0.30);
-  }
-
-  80% {
-    background: rgba(0, 0, 0, 0.10);
+  50% {
+    background: rgba(0, 0, 0, 0.675);
   }
 
   100% {
-    display: none;
+    visibility: hidden;
   }
 }
 
 @-webkit-keyframes toast {
-  0% {
+ 0% {
     background: rgba(0, 0, 0, 0.90);
   }
 
-  20% {
-    background: rgba(0, 0, 0, 0.70);
-  }
-
-  40% {
-    background: rgba(0, 0, 0, 0.50);
-  }
-
-  60% {
-    background: rgba(0, 0, 0, 0.30);
-  }
-
-  80% {
-    background: rgba(0, 0, 0, 0.10);
+  50% {
+    background: rgba(0, 0, 0, 0.675);
   }
 
   100% {
-    display: none;
+    visibility: hidden;
   }
 }

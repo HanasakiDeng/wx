@@ -1,6 +1,6 @@
 <!--pages/components/toast/toast.wxml-->
 <template name='toast'>
   <view class='toast'>
-    <view class='toast-content'>操作成功</view>
+    <view class='toast-content'>{{msg}}</view>
   </view>
 </template>
