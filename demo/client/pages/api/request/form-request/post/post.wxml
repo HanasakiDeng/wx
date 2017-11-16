@@ -6,26 +6,31 @@
     <form bindsubmit='addOneBookToServer'>
       <view class='book'>
         <view class='book-item'>
+          <input name="imgUrl" value="http://img3m4.ddimg.cn/25/32/25166914-1_l_6.jpg" hidden='true'></input>
           <image src='http://img3m4.ddimg.cn/25/32/25166914-1_l_6.jpg' mode='aspectFit'></image>
         </view>
         <view class='book-item'>
           <label for='bookName'>书名：</label>
-          <input name='bookName' type='text' value='极简法则：从苹果到优步的深层简化工具'></input>
+          <input name='bookName' id='bookName' type='text' value='极简法则：从苹果到优步的深层简化工具' />
         </view>
         <view class='book-item'>
           <label for='author'>作者：</label>
-          <input name='author' type='text' value='理查德·科克　格雷格·洛克伍德 '></input>
+          <input name='author' type='text' value='理查德·科克　格雷格·洛克伍德 ' />
         </view>
         <view class='book-item'>
           <label for='price'>定价：</label>
-          <input name='price' type='digit' value='51.00'></input>
+          <input name='price' type='digit' value='51.00' />
         </view>
         <view class='book-item'>
           <label for='desc'>简介：</label>
-          <textarea name='desc'>20/80法则之父全新力作，帮你在高增长市场取代现有巨头跻身“明星企业”，极简，改变世界的力量 30万图书100减30，经管励志专场，点击查看</textarea>
+          <textarea name='desc'>
+            20/80法则之父全新力作，帮你在高增长市场取代现有巨头跻身“明星企业”，极简，改变世界的力量 30万图书100减30，经管励志专场，点击查看
+          </textarea>
+        </view>
+        <view class='btn-area'>
+          <button form-type='submit' size="mini" type='primary'>添加</button>
         </view>
       </view>
-      <button form-type='submit'>添加</button>
     </form>
   </view>
 </view>

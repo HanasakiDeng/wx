@@ -10,20 +10,37 @@ page {
   border-radius: 8rpx;
 }
 
-.content .book {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
 .book .book-item {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   padding: 10rpx 20rpx;
+  font-size: 25rpx;
 }
 
+label {
+  display: block;
+}
 
+input {
+  width: 500rpx;
+  line-height: 25rpx;
+}
 
+textarea {
+  height: auto;
+  display: block;
+  width: 88%;
+  word-break: break-all;
+  white-space: wrap;
+}
+
+.btn-area {
+  margin-top:15%;
+  margin-bottom:5%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+}
