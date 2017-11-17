@@ -1,1 +1,6 @@
 /* pages/api/request/upload/upload.wxss */
+.btn-area{
+  display: flex;
+  flex-direction: row;
+  
+}

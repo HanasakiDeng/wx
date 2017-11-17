@@ -1,5 +1,5 @@
 /* pages/api/request/form-request/post/post.wxss */
-
+@import '../../../../components/toast/toast.wxss';
 page {
   background: #e2e2e2;
 }
@@ -29,7 +29,7 @@ input {
 }
 
 textarea {
-  height: auto;
+  line-height: 25rpx;
   display: block;
   width: 88%;
   word-break: break-all;
@@ -37,8 +37,8 @@ textarea {
 }
 
 .btn-area {
-  margin-top:15%;
-  margin-bottom:5%;
+  margin-top: 15%;
+  margin-bottom: 5%;
   display: flex;
   display: -webkit-flex;
   justify-content: center;

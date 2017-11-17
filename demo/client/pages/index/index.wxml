@@ -1,7 +1,4 @@
 <!--index.wxml-->
-<import src='../components/toast/toast.wxml'></import>
-<template is="toast" data="{{msg}}" />
-
 <view class="container">
   <view class='title'>
     本demo,诣在帮助自己对接口的使用，以及使用过程中出现的问题进行记录。

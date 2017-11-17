@@ -3,15 +3,18 @@
   <view class='content'>
     <view class='title'>向右滑动可查看多本书籍资料</view>
     <swiper class='book-list'>
-      <block wx:for="bookList" wx:index="idx">
+      <block wx:for="{{bookList}}" wx:for-index="idx" wx:key="id" wx:for-item="book">
         <swiper-item class='book'>
-          <image class='logo' src='http://img3m2.ddimg.cn/51/34/25159812-1_l_9.jpg' mode='aspectFit'></image>
-          <view class='name'>书名：一禅小和尚</view>
-          <view class='desc'>幅幅萌到爆棚！独特的水墨彩绘，可爱到喷血的人物形象，真挚的情感共鸣，暖萌减压的诚意之作~ 微博每条漫画转发量平均三万+的国民IP作品，人民日报等主流媒体都纷纷转发的“忒可爱了”作品。</view>
+          <text>第{{idx+1}}页</text>
+          <image class='logo' src='{{book.book_logo}}' mode='aspectFit'></image>
+          <view class='book-item'>书名：{{book.book_name}}</view>
+          <view class='book-item'>作者：{{book.book_author}}</view>
+          <view class='book-item'>价格：￥{{book.book_price}}</view>
+          <view class='book-item'>简介：{{book.book_desc===''?'暂无':book.book_desc}}</view>
           <view class='toolbar'>
             <image src='../../../../images/add.png' bindtap='add'></image>
-            <image src='../../../../images/delete.png' bindtap='delete' data-id="{{item.bookId}}"></image>
-            <image src='../../../../images/modify.png' bindtap='modify' data-id="{{item.bookId}}"></image>
+            <image src='../../../../images/delete.png' bindtap='delete' data-id="{{book.id}}"></image>
+            <image src='../../../../images/modify.png' bindtap='modify' data-id="{{book.id}}"></image>
           </view>
         </swiper-item>
       </block>

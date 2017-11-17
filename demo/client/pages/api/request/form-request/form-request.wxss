@@ -1,5 +1,0 @@
-/* pages/api/request/form-request/form-request.wxss */
-@import '../../../index/index.wxss';
-.footer{
-  margin-top:20rpx;
-}

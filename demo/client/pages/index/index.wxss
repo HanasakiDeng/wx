@@ -1,5 +1,5 @@
 /**index.wxss**/
-@import '../components/toast/toast.wxss';
+
 .title{
   text-indent:20rpx;
   font-size:30rpx;

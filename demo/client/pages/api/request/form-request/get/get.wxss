@@ -49,6 +49,9 @@ page {
   border-radius: 0 0 8rpx 8rpx;
   height: 500px;
 }
+.book-item{
+  align-self: flex-start;
+}
 
 .name {
   margin: 10rpx;

@@ -1,14 +1,11 @@
 {
   "pages": [
-    "pages/api/request/form-request/post/post",
+    "pages/api/request/upload/upload",
     "pages/index/index",
+    "pages/api/request/form-request/post/post",
     "pages/api/request/form-request/get/get",
     "pages/logs/logs",
-    "pages/api/request/form-request/form-request",
-    "pages/api/request/index",
-    "pages/api/request/upload/upload",
-    "pages/api/request/form-request/put/put",
-    "pages/api/request/form-request/delete/delete"
+    "pages/api/request/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
