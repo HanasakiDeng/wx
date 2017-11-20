@@ -1,0 +1,16 @@
+<!--pages/api/media/index.wxml-->
+<view class='container'>
+  <view class='title'>
+    多媒体接口展示
+  </view>
+  <view class='content'>
+    <navigator class='arrow' url='form-request/get/get'>图片</navigator>
+    <navigator class='arrow' url='upload/upload'>录音</navigator>
+    <navigator class='arrow' url='download/download'>录音管理</navigator>
+    <navigator class='arrow'>录音播放控制</navigator>
+    <navigator class='arrow'>音乐控制播放</navigator>
+    <navigator class='arrow'>音频组件控制</navigator>
+     <navigator class='arrow'>视频</navigator>
+     <navigator class='arrow'>组件控制</navigator>
+  </view>
+</view>

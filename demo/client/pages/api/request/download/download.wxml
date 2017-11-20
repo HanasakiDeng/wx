@@ -1,0 +1,4 @@
+<!--pages/api/request/download/download.wxml-->
+<button bindtap='download'>下载</button>
+<image src='{{imgPath}}' mode='abspectFit'/>
+<progress percent="{{progress}}" show-info="true" active="true"></progress>

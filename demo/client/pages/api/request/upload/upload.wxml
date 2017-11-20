@@ -2,11 +2,9 @@
 <view class='container'>
   <view class='btn-area'>
     <button bindtap='uploadImageToServer'>上传图片</button>
-    <button bindtap="uploadFileToServer">上传文件</button>
   </view>
   <view class='show-area'>
     <view>图片显示</view>
     <image src='{{imgPath}}' mode='aspectFit'></image>
   </view>
-
 </view>

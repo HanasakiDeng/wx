@@ -6,7 +6,7 @@
   <view class='content'>
     <navigator class='arrow' url='form-request/get/get'>请求</navigator>
     <navigator class='arrow' url='upload/upload'>上传</navigator>
-    <navigator class='arrow'>下载</navigator>
+    <navigator class='arrow' url='download/download'>下载</navigator>
     <navigator class='arrow'>webSocket</navigator>
   </view>
 </view>
