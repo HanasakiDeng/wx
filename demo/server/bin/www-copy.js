@@ -5,47 +5,44 @@ var WebSocketServer = require('ws').Server,
     });
 
 function socketVerify(info) {
-    console.log(info.origin);
-    console.log(info.req.t);
-    console.log(info.secure);
     return true; //否则拒绝
     //传入的info参数会包括这个连接的很多信息，你可以在此处使用console.log(info)来查看和选择如何验证连接
 }
+
 //广播
-wss.broadcast = function broadcast(s,ws) {
+wss.broadcast = function broadcast(s, ws) {
     // console.log(ws);
     // debugger;
     wss.clients.forEach(function each(client) {
         // if (typeof client.user != "undefined") {
-        if(s == 1){
+        if (s === 1) {
             client.send(ws.name + ":" + ws.msg);
         }
-        if(s == 0){
+        if (s === 0) {
             client.send(ws + "退出聊天室");
         }
         // }
     });
 };
+var numClients = 0;
 // 初始化
-wss.on('connection', function(ws) {
-    // console.log(ws.clients.session);
-    // console.log("在线人数", wss.clients.length);
-    console.log(wss.clients);
-    ws.send('你是第' + wss.clients.length + '位');
+wss.on('connection', function (ws, res) {
+    numClients++;
+    ws.send('当前用户数为' + numClients + '位');
     // 发送消息
-    ws.on('message', function(jsonStr,flags) {
+    ws.on('message', function (jsonStr, flags) {
         var obj = eval('(' + jsonStr + ')');
-        // console.log(obj);
+        console.log(obj);
         this.user = obj;
-        if (typeof this.user.msg != "undefined") {
-            wss.broadcast(1,obj);
+        if (typeof this.user.msg !== "undefined") {
+            wss.broadcast(1, obj);
         }
     });
     // 退出聊天
-    ws.on('close', function(close) {
-        try{
-            wss.broadcast(0,this.user.name);
-        }catch(e){
+    ws.on('close', function (close) {
+        try {
+            wss.broadcast(0, this.user.name);
+        } catch (e) {
             console.log('刷新页面了');
         }
     });
