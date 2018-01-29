@@ -169,6 +169,7 @@ class AddOrderModel extends Base {
   getOptionsList(e, _this) {
     let type = this.getDataSet(e, 'type'),
       optionsList = [];
+      console.log("类型"+type);
     switch (type) {
       case 'SALE': optionsList = saleList; break;
       case 'WORK_AREA': optionsList = workAreaList; break;

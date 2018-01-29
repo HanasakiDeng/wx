@@ -30,6 +30,7 @@ class Base {
       }
     }
     console.log(params.url);
+  
     wx.request({
       url: params.url,
 
@@ -82,7 +83,7 @@ class Base {
         wx.showModal({
           title: '请求异常',
           content: '请检查您的网络设置是否打开',
-          showCancel:false
+          showCancel: false
         })
         console.log("请求异常");
       }

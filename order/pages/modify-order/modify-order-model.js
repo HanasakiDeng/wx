@@ -78,6 +78,7 @@ class ModifyOrderModel extends Base {
         })
       },
     }
+    
     this.request(params);
     // 填充数据
     _this.setData({

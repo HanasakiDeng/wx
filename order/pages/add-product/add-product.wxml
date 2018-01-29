@@ -3,7 +3,7 @@
 <view class="addProduct bg-629aff">
   <view class="commodityName">
     <input placeholder-class="size" placeholder="商品名称/助记码/商品代码" />
-    <navigator url="../product-detail/product-detail" class="query">查询</navigator>
+    <navigator  class="query">查询</navigator>
   </view>
 </view>
 <view class="container">
