@@ -75,7 +75,10 @@ function Client_MariaSQL(config) {
     });
   },
   validateConnection: function validateConnection(connection) {
-    return connection.connected === true;
+    if (connection.connected === true) {
+      return _bluebird2.default.resolve(true);
+    }
+    return _bluebird2.default.resolve(false);
   },
 
 
@@ -83,7 +86,14 @@ function Client_MariaSQL(config) {
   // when a connection times out or the pool is shutdown.
   destroyRawConnection: function destroyRawConnection(connection) {
     connection.removeAllListeners();
+    var closed = _bluebird2.default.resolve();
+    if (connection.connected || connection.connecting) {
+      closed = new _bluebird2.default(function (resolve) {
+        connection.once('close', resolve);
+      });
+    }
     connection.end();
+    return closed;
   },
 
 

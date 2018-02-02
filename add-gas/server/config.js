@@ -1,31 +1,46 @@
+const CONF = {
+  port: '5757',
+  rootPathname: '',
+  mainDbName: 'gas',
 
-const Config ={
-    // 微信小程序 App ID
-    appId: 'wx818dad1507c9de8b',
+  // 微信小程序 App ID
+  appId: 'wxb17d6eceb9067e6f',
 
-    // 微信小程序 App Secret
-    appSecret: 'd5f850bc18e9dff843d7a4ed71145261',
+  // 微信小程序 App Secret
+  appSecret: '52121ec1a225c82ff3d35a24157adafd',
 
-    // 是否使用腾讯云代理登录小程序
-    useQcloudLogin: true,
+  // 是否使用腾讯云代理登录小程序
+  useQcloudLogin: true,
 
+  /**
+   * MySQL 配置，用来存储 session 和用户信息
+   * 若使用了腾讯云微信小程序解决方案
+   * 开发环境下，MySQL 的初始密码为您的微信小程序 appid
+   */
+  mysql: {
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    db: 'cAuth',
+    pass: 'wxb17d6eceb9067e6f',
+    char: 'utf8mb4'
+  },
+
+  cos: {
     /**
-     * MySQL 配置，用来存储 session 和用户信息
-     * 若使用了腾讯云微信小程序解决方案
-     * 开发环境下，MySQL 的初始密码为您的微信小程序 appid
+     * 地区简称
+     * @查看 https://cloud.tencent.com/document/product/436/6224
      */
-    mysql:function (dbName) {
-        return {
-            host: 'localhost',
-            port: 3306,
-            user: 'root',
-            db: dbName, //'cAuth',
-            pwd: '',
-            char: 'utf8mb4'
-        }
+    region: 'ap-shanghai',
+    // Bucket 名称
+    fileBucket: 'qcloudtest',
+    // 文件夹
+    uploadFolder: 'gas'
+  },
 
-    },
-
-
+  // 微信登录态有效期
+  wxLoginExpires: 7200,
+  wxMessageToken: 'abcdefgh'
 }
-module.exports = Config;
+
+module.exports = CONF

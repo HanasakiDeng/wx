@@ -1,50 +1,19 @@
-let express = require('express');
-let path = require('path');
-let favicon = require('serve-favicon');
-let logger = require('morgan');
-let cookieParser = require('cookie-parser');
-let bodyParser = require('body-parser');
+const Koa = require('koa')
+const app = new Koa()
+const debug = require('debug')('add-gas-weapp')
+const response = require('./middlewares/response')
+const bodyParser = require('koa-bodyparser')
+const config = require('./config')
 
-let index = require('./routes/index');
-let api = require('./routes/api');
+// 使用响应处理中间件
+app.use(response)
 
+// 解析请求体
+app.use(bodyParser())
 
-let app = express();
+// 引入路由分发
+const router = require('./routes')
+app.use(router.routes())
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser("keyboard cat"));
-app.use(express.static(path.join(__dirname, 'public')));
-console.log(path.join(__dirname, 'public'));
-
-app.use(`/`, index);
-app.use(`/getStationList`, api);
-app.use(`/upload`,api);
-
-
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    let err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-
-
-// error handler
-app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-});
-
-module.exports = app;
+// 启动程序，监听端口
+app.listen(config.port, () => debug(`listening on port ${config.port}`))

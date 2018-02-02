@@ -111,8 +111,10 @@ function containsUndefined(mixed) {
     }
   } else if ((0, _isObject3.default)(mixed)) {
     for (var key in mixed) {
-      if (argContainsUndefined) break;
-      argContainsUndefined = this.containsUndefined(mixed[key]);
+      if (mixed.hasOwnProperty(key)) {
+        if (argContainsUndefined) break;
+        argContainsUndefined = this.containsUndefined(mixed[key]);
+      }
     }
   } else {
     argContainsUndefined = (0, _isUndefined3.default)(mixed);
