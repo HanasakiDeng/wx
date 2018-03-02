@@ -15,7 +15,7 @@ class Base {
    * @param  noRefetch 布尔类型,当为true时,不做未授权重试机制
    */
   request(params, noRefetch) {
-
+    console.log('[base line 18] params:',params);
     let self = this;
     if (!params.method) {
       params.method = 'GET';
@@ -29,8 +29,6 @@ class Base {
         params.url = params.url + "?access-token=" + token;
       }
     }
-    console.log(params.url);
-  
     wx.request({
       url: params.url,
 
@@ -49,7 +47,6 @@ class Base {
 
         switch (statusCode) {
           case '200': //请求成功
-            console.log(res.data);
             if (res.data.status == 1) {
 
               typeof params.success == 'function' && params.success(res.data.data);
@@ -64,6 +61,7 @@ class Base {
               title: '请求失败',
               content: '您的登录状态已失效,请重新登录',
             });
+            wx.clearStorageSync();
             wx.reLaunch({
               url: '../login/login',
             });

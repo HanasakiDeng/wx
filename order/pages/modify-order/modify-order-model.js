@@ -20,6 +20,7 @@ function OrderDto(data) {
   this.products = []; //是 数组对象 定制产品
   this.f_linkman = data.f_linkman; //否	string	联系人
   this.f_phone = data.f_phone; //否	string	联系电话
+  this.f_date = data.sendDate; // 是 date(yyyy-mm-dd) 配送日期
 }
 
 function ProductDto(data) {
@@ -37,74 +38,53 @@ class ModifyOrderModel extends Base {
     orgAddressList = [];
     orgNameList = [];
     let orderInfo = JSON.parse(options.orderInfo);
-    console.log(orderInfo.products);
-
-    let params = {
-      method: "GET",
-      url: Config.customerDetailUrl(orderInfo.order.FCode),
-      success: (res) => {
-        console.log(res);
-        let customer = res.customer; //顾客基本信息
-        if (res.customer.FCreditFlag.includes('不通过')) {
-          _this.data.dialogOptions = {
-            showDialogStatus: true,
-            content: '您添加的机构信用不足哦,是否继续',
-            cancelText: '取消',
-            confirmText: '继续',
-            cancel: 'hideDialog',
-            confirm: 'hideDialog'
-          }
-        }
-        //存在所属部门
-        if (res.customerorg && (res.customerorg.FAddress != null || res.customerorg.FAddress != '')) {
-          _this.setData({
-            orgDisabled: true
-          })
-          for (let orgItem of res.customerorg) {
-            orgNameList.push(orgItem.FName);
-            orgAddressList.push(orgItem.FAddress);
-          }
-        } else {
-          _this.setData({
-            orgDisabled: false
-          })
-        }
-      },
-      fail: (msg) => {
-        console.log(msg);
-        wx.showModal({
-          content: msg,
-          showCancel: false
-        })
-      },
-    }
-    
-    this.request(params);
+    console.log('[modify-order-model] orderInfo:', orderInfo);
     // 填充数据
     _this.setData({
       modifyInputValue: orderInfo,
       key_id: orderInfo.order.KeyId,
       productList: orderInfo.products
     })
-
-    if (orderInfo.FDeliveryMethod === "自提") {
+    //当订单提货方式为自提时，所属部门，收货地址不显示
+    if (orderInfo.order.FdeliveryMethod === '自提') {
       _this.setData({
+        deptShow: false,
         isAddress: false
       })
-    }
-    if (orderInfo.FPhone == "") {
+    } else {
       _this.setData({
-        contactNumber: true
+        deptShow: true,
+        isAddress: true
       })
     }
-    if (orderInfo.FLinkman == "") {
-      _this.setData({
-        linkMan: true
-      })
+    this.getDeptList(orderInfo.order.FCode, _this);
+  }
+  getDeptList(code, _this) {
+    let params = {
+      method: "GET",
+      url: Config.customerDetailUrl(code),
+      success: function (res) {
+        //没有部门信息时，隐藏部门部分，存在将数据添加至数组
+        if (res.customerorg) {
+          for (let orgItem of res.customerorg) {
+            orgNameList.push(orgItem.FName);
+            orgAddressList.push(orgItem.FAddress);
+          }
+        } else {
+          _this.setData({
+            deptShow: false
+          })
+        }
+      },
+      fail: function (err) {
+        console.log(err);
+        wx.showModal({
+          content: err,
+          showCancel: false
+        })
+      }
     }
-
-   
-
+    this.request(params);
   }
   // 设置下拉列表项
   getOptionsList(e, page) {
@@ -132,18 +112,17 @@ class ModifyOrderModel extends Base {
     let type = this.getDataSet(e, 'type'),
       item = this.getDataSet(e, 'item'),
       index = this.getDataSet(e, 'index');
-      console.log(item,index)
     switch (type) {
       case 'SALE': _this.data.modifyInputValue.order.FSalesman = item; break;
       case 'WORK_AREA': _this.data.modifyInputValue.order.FDistributionPoint = item; break;
       case 'SEND_METHOD': _this.data.modifyInputValue.order.FDeliveryMethod = item; break;
       case 'PLAN_TYPE': _this.data.modifyInputValue.order.FBill = item; break;
-      case 'ORG': 
-        _this.data.modifyInputValue.order.FOrgName = item; 
+      case 'ORG':
+        _this.data.modifyInputValue.order.FOrgName = item;
         if (orgAddressList[index] == null) {
           _this.data.modifyInputValue.order.FAddress = '';
           _this.setData({
-            addressDisabled: false  
+            addressDisabled: false
           })
         } else {
           _this.data.modifyInputValue.order.FAddress = orgAddressList[index]
@@ -155,12 +134,21 @@ class ModifyOrderModel extends Base {
       default: break;
     }
     switch (item) {
-      case "自提": _this.setData({ isAddress: false }); break;
-      case "送货上门": _this.setData({ isAddress: true }); break;
-      case "物流配送": _this.setData({ isAddress: true }); break;
-      case "多方联运": _this.setData({ isAddress: true }); break;
-      case "其他": _this.setData({ isAddress: true }); break;
+      case "自提": _this.setData({ deptShow: false, isAddress: false }); break;
+      case "送货上门": _this.setData({ deptShow: true, isAddress: true }); break;
+      case "物流配送": _this.setData({ deptShow: true, isAddress: true }); break;
+      case "多方联运": _this.setData({ deptShow: true, isAddress: true }); break;
+      case "其他": _this.setData({ deptShow: true, isAddress: true }); break;
       default: break;
+    }
+    if (orgNameList.length === 0) {
+      _this.setData({
+        deptShow: false
+      })
+    } else if (orgNameList.length !== 0 && item !== '自提') {
+      _this.setData({
+        deptShow: true
+      })
     }
     _this.setData({
       showedRadioGroup: false,
@@ -181,12 +169,12 @@ class ModifyOrderModel extends Base {
     }
     wx.setStorageSync("NewProductList", newProductList)
     _this.setData({
-      productList : newProductList
+      productList: newProductList
     })
   }
 
   //修改完成插入新数据。
-  modifyCompleted (key_id,data,_this) {
+  modifyCompleted(key_id, data, _this) {
     let newProduct = {};
     let product = [];
 
@@ -212,11 +200,11 @@ class ModifyOrderModel extends Base {
     orderDto.products = product;
 
     wx.setStorageSync('orderDto', orderDto)
-    console.log(orderDto);
+    console.log("[203]", orderDto);
     //获取添加的产品
     let params = {
       method: "POST",
-      url: Config.modifyOrderUrl(key_id),
+      url: Config.addOrderUrl,
       data: orderDto,
       success: (res) => {
         console.log(res)

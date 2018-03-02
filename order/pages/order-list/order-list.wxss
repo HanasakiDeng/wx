@@ -51,7 +51,7 @@
   font-size: 14px;
   background-color: #88b3ff;
   color: #fff;
-  flex: 0.6;
+  flex: 0.5;
 }
 
 .search-item:last-of-type {
@@ -103,7 +103,9 @@
   height: 48px;
   display: flex;
   justify-content: center;
+  align-content: center;
   background-color: #fff;
+  box-shadow: 3px 0 0 0 rgba(0, 0, 0, 0.68);
   color: #fff;
 }
 
@@ -117,6 +119,11 @@
   box-shadow: 0 3px 5px 0 rgba(98, 154, 255, 0.68);
   line-height: 48px;
   text-align: center;
+  vertical-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 .circle-btn:active {

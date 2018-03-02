@@ -8,13 +8,10 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.7.2",
+	"libVersion": "1.6.0",
 	"appid": "wx305d4ecdfbcfdc0e",
-	"projectname": "ERP%E7%A7%BB%E5%8A%A8%E8%AE%A2%E5%8D%95",
-	"svr": "",
-	"client": "",
-	"qcloudRoot": "",
-	"miniprogramRoot": "",
+	"projectname": "feifantong",
+	"isGameTourist": false,
 	"condition": {
 		"search": {
 			"current": -1,
@@ -25,7 +22,7 @@
 			"list": []
 		},
 		"game": {
-			"current": -1,
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {

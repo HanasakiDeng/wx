@@ -36,13 +36,7 @@ let Config = {
 
   // 添加订单
   addOrderUrl: `${host}/order/create`,
-  
-  updateOrderUrl: (keyId) => { return `${host}/order/create?key_id={keyId}` },
-
-  //修改订单
-  modifyOrderUrl: (key_id) => {
-    return `${host}/order/create?key_id=${key_id}`
-  },
+ 
 
   //订单作废
   toVoidOrderUrl: `${host}/order/invalid`,

@@ -60,62 +60,57 @@ page {
   padding: 10px 0;
   margin-top: -1px; 
 }
-.add-order {
-  width: 33.3%;
+
+.order-detail-menu {
+  padding:10px;
+  background:#fff;
+  border-radius:0 0 10px 10px;
+  margin-top:10px;
 }
-.add-order-list {
-  width: 90%;
-  margin-left: 5%;
+
+.order-detail-list {
   display: flex;
-  font-size: 14px;
-  padding: 14px 0;
-  align-items: center;
-  background: #e9f2ff;
-  margin-bottom: 5px; 
+  background: #d6e6ff;
+  height: 60px;
+  margin-bottom: 5px;
 }
-.add-order-name {
-  margin-left: 2%;
+.productMsg {
+  margin-top: 6px;
+  margin-left: 10px;
+  flex: 1;
 }
-.add-order-num {
-  text-align: center;
+.name {
+  padding-bottom: 5px;
+  font-size: 15px;
 }
-.order-num {
-  border-bottom: 1px solid #cfcfcf;
-  width: 35px;
-  transform: rotate(-45deg);
-  margin-left: 20px;
+.spec {
+  font-size: 12px;
+  color: gray;
 }
-.order-num label {
-  display: inline-block;
-  transform: rotate(45deg);
+.numMsg {
+  display: flex;
+  line-height: 60px;
+  font-size: 16px;
 }
-.slash {
-  display: inline-block;
-  width: 1px;
-  height: 35px;
-  background: #cfcfcf;
-  transform: rotate(45deg) translate(-10px);
+.num {
+  padding-right: 5px; 
 }
-.add-order-price {
-  color: #ff2420;
-  text-align: center;
-}
-.order-name {
-  color: #454545;
-  padding-bottom:5px;
-}
-.order-spec {
-  color: #a2a2a2;
+.price {
+  flex: 1;
+  margin-top: 20px;
+  color: red;
+  text-align: right;
+  font-size: 16px;
+  margin-right: 10px
 }
 .remarks {
-  font-size: 12px;
-  color: #686a6d;
-  background-color: #e9f2ff;
-  width: 85%;
-  margin-left: 5%;
-  margin-top: -3px;
-  padding: 4px 0 4px 5%;
+  padding: 10px;
+  background: #d6e6ff;
+  color: gray;
+  font-size: 16px;
+  margin-top: 2px;
 }
+
 .box-bottom {
   background-color: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
@@ -138,3 +133,6 @@ page {
   width: 50%;
   border-radius: 0;
 }
+
+
+

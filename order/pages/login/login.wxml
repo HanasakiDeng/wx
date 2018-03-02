@@ -8,14 +8,16 @@
       <view bindtap="bindInputTap">
         <view class="user-pwd">
           <image src="../../images/icon/username.png"></image>
-          <input placeholder="请输入用户名"  placeholder-class="input-placeholder" name="username" id="username" />
+          <input placeholder="请输入用户名" placeholder-class="input-placeholder" name="username" id="username" value='0358' />
         </view>
         <view class="user-pwd">
           <image src="../../images/icon/pwd.png"></image>
-          <input password="{{true}}"  placeholder-class="input-placeholder" placeholder="请输入密码" name="password" id="pwd" />
+          <input password="{{true}}" placeholder-class="input-placeholder" placeholder="请输入密码" name="password" id="pwd" value='123456'/>
         </view>
       </view>
-      <view><button style="{{isInput? 'margin-top: 10%;' : ''}}" class="bg-629aff btn-lg" form-type="submit">登录</button></view>
+      <view>
+        <button style="{{isInput? ' margin-top: 10%; ' : ' '}}" class="bg-629aff btn-lg" form-type="submit">登录</button>
+      </view>
     </form>
   </view>
 </view>

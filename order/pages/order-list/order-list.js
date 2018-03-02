@@ -39,8 +39,6 @@ Page({
    * 下拉列表项
    */
   selectItem: function (e) {
-    console.log(e.currentTarget.dataset.name);
-    console.log(e.currentTarget.dataset.index);
     let self = this;
     this.data.orderList = []; //清空列表
     this.data.pageIndex = 1;  // 初始页面 1
@@ -97,15 +95,16 @@ Page({
         this.data.hasSearch = false;
       }
     }
-    wx.showLoading({
-      title: '加载中...',
-    })
+
     orderListModel.getOrderListFromServer(this.data.holderParams, function (res) {
       self.setData({
         orderList: res
       });
     }, this);
     this._resetData();
+  },
+  onUnload: function () {
+    console.log('已卸载')
   },
   /**
  * 页面上拉触底事件的处理函数
@@ -138,7 +137,7 @@ Page({
       self._resetData();
     }, this);
   },
- 
+
   //重置数据
   _resetData: function () {
     this.setData({
@@ -162,5 +161,4 @@ Page({
     wx.removeStorageSync(Constants.FCODE);
     wx.removeStorageSync(Constants.STATUS);
   }
-
 })

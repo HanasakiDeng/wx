@@ -21,15 +21,21 @@ Page({
     orgDisabled: false,
     addressDisabled: false,
     secondShowed: false,
-    productList:[]
+    productList: [],
+    start: '',
+    sendDate: '',
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
     console.log("执行了:" + index++);
     wx.removeStorageSync("STATUS");
     wx.removeStorageSync(Constants.ADD_ORDER_CUSTOMER);
+    this.setData({
+      start: that.initDate()
+    })
   },
   onShow: function () {
     let customerObj = wx.getStorageSync(Constants.ADD_ORDER_CUSTOMER);
@@ -40,8 +46,29 @@ Page({
     let status = wx.getStorageSync("STATUS");
     if (status == "ok") {
       addOrderModel.addToProductList(this);
-     
     }
+  },
+  /**
+   * @function 初始化日期
+   * 
+   */
+  initDate() {
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
+    let day = now.getDate();
+    return year + '-' + month + '-' + day
+  },
+  /**
+   * 监测日期选择器
+   */
+  getDate(e) {
+    console.log('选择的日期为：', e.detail.value);
+    this.data.sendDate = e.detail.value;
+    this.setData({
+      sendDate: e.detail.value
+    })
+
   },
 
   // 获取单个产品数目
@@ -82,6 +109,11 @@ Page({
     }
     //产品值添加到提交数据中
     this.data.order.products = productList;
+    this.data.order.sendDate = e.detail.value.sendDate;
+    this.data.order.linkMan = e.detail.value.linkMan;
+    this.data.order.phone = e.detail.value.phone;
+    this.data.order.memo = e.detail.value.memo;
+    console.log(this.data.order);
     addOrderModel.insertDataToServer(this.data.order);
   },
   /**
@@ -93,6 +125,7 @@ Page({
   },
   //显示下拉列表
   showRadioGroup: function (e) {
+    console.log(e);
     addOrderModel.getOptionsList(e, this);
   },
   /**页面跳转部分 */
@@ -141,14 +174,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-     
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**

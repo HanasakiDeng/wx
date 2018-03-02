@@ -41,7 +41,7 @@
       </view>
     </block>
     <block wx:else>
-      <view class="msg">
+      <view class="msg" hidden='{{showMsg}}'>
         无列表数据
       </view>
     </block>

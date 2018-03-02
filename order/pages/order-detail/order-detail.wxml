@@ -17,18 +17,33 @@
               <label  wx:if="{{ FStatus === '未出库' }}">未出库</label>
               <label  wx:if="{{ FStatus === '已出库' }}">已出库</label>
             </view>
-            <view class="send-date">创建日期：<label>{{detailInfo.order.FDate}}</label></view>
+            <view class="send-date">配送时间：<label>{{detailInfo.order.FDate}}</label></view>
           </view>
         </view>
       </view>
 
       <view class="order-info"><label>机构名称</label> <label>{{detailInfo.order.FName}}</label></view>
       <view class="order-info"><label>机构代码</label> <label>{{detailInfo.order.FCode}}</label></view>
-      <view wx:if="{{linkMan}}" class="order-info"><label>联系人</label> <label>{{detailInfo.order.FLinkman}}</label></view>
-      <view  wx:if="{{phone}}" class="order-info"><label>联系电话</label> <label>{{detailInfo.order.FPhone}}</label></view> 
       <view  wx:if="{{orgName}}" class="order-info"><label>所属部门</label> <label>{{detailInfo.order.FOrgName}}</label></view>
       <view  wx:if="{{address}}" class="order-info"><label>收货地址</label><label>{{detailInfo.order.FAddress}}</label></view>
       
+    </view>
+    
+    <view class="order-detail-menu">
+      <view wx:for="{{detailInfo.products}}">
+        <view class="order-detail-list">
+        <view class='productMsg'>
+          <view class="name">{{item.FItemCode.FName}}</view>
+          <view class="spec">{{item.FItemCode.FSpec}}</view>
+        </view>
+        <view class='numMsg'>
+          <view class='num'>{{item.FQty}}</view>
+          <view class='company'>{{item.FItemCode.FUnit}}</view>
+        </view>
+        <view class='price'>￥{{item.FPrice}}</view>
+        </view>
+      </view>
+      <view class='remarks'>备注：{{detailInfo.order.FMemo}}</view>
     </view>
 
     <view class="box-bottom">
@@ -37,6 +52,8 @@
         <view class="order-info"><label>作业区</label> <label>{{detailInfo.order.FDistributionPoint}}</label></view>
         <view class="order-info"><label>配送方式</label> <label>{{detailInfo.order.FDeliveryMethod}}</label></view>
         <view class="order-info"><label>计划类型</label> <label>{{detailInfo.order.FBill}}</label></view>
+        <view wx:if="{{linkMan}}" class="order-info"><label>联系人</label> <label>{{detailInfo.order.FLinkman}}</label></view>
+        <view  wx:if="{{phone}}" class="order-info"><label>联系电话</label> <label>{{detailInfo.order.FPhone}}</label></view> 
         <view class="order-info"><label>备注</label><label>{{detailInfo.order.FMemo}}</label></view>
       </view>
   </view>

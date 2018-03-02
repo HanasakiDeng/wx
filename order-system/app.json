@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/goods-list/goods-list",
     "pages/mutil-index/mutil-index",
-    "pages/index/index",
     "pages/reservation/reservation"
   ],
   "window": {

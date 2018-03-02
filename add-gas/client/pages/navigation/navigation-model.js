@@ -1,7 +1,7 @@
 import { Base } from '../../utils/base.js';
-import { Config } from '../../utils/config.js';
+import { config } from '../../config'
 let amapFile = require('../../libs/amap-wx.js');//如：..­/..­/libs/amap-wx.js;
-let myAmapFun = new amapFile.AMapWX({ key: Config.gdMapkey });
+let myAmapFun = new amapFile.AMapWX({ key: config.map.gdMapkey });
 
 class NavigationModel extends Base {
 
@@ -62,7 +62,7 @@ class NavigationModel extends Base {
           //     distance: '去加油'
           //   });
           // }else{
-           
+
           // }
         }
       },

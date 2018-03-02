@@ -9,7 +9,8 @@
     <view class="container">
       <!--基本信息部分  -->
       <view class="card line-spacing-20px">
-        <view class="list-header">请输入订单详细信息(<label class="color-ff6262">*</label>为必填项)</view>
+        <view class="list-header">请输入订单详细信息(
+          <label class="color-ff6262">*</label>为必填项)</view>
         <view class="list">
           <!-- 机构名称 -->
           <view class="list-item">
@@ -17,7 +18,8 @@
               <view class="item-star color-ff6262">*</view>
               <view class="item-title">机构名称</view>
               <view class="item-desc">
-                <input type="text" name="name" placeholder="请输入机构名称" placeholder-class="placeholder" disabled value="{{order.name}}" capture-bind:tap="toSearch" value="{{order.name}}" /></view>
+                <input type="text" name="name" placeholder="请输入机构名称" placeholder-class="placeholder" disabled value="{{order.name}}" capture-bind:tap="toSearch"  />
+              </view>
             </view>
             <view class="list-item-ft arrow"></view>
           </view>
@@ -26,7 +28,9 @@
             <view class="list-item-hd">
               <view class="item-star color-ff6262 ">*</view>
               <view class="item-title ">机构代码</view>
-              <view class="item-desc"><input type="text" name="code" placeholder="请输入机构名称 " disabled class="placeholder" value="{{order.code}}" /></view>
+              <view class="item-desc">
+                <input type="text" name="code" placeholder="请输入机构名称 " disabled class="placeholder" value="{{order.code}}" />
+              </view>
             </view>
           </view>
           <!--业务员  -->
@@ -34,7 +38,9 @@
             <view class="list-item-hd ">
               <view class="item-star color-ff6262">*</view>
               <view class="item-title">业务员</view>
-              <view class="item-desc" capture-bind:tap="showRadioGroup" data-type="SALE"><input type="text" value="{{order.saleman}}" placeholder="请选择业务员" placeholder-class="placeholder" disabled /></view>
+              <view class="item-desc" capture-bind:tap="showRadioGroup" data-type="SALE">
+                <input type="text" name='saleman' value="{{order.saleman}}" placeholder="请选择业务员" placeholder-class="placeholder" disabled />
+              </view>
             </view>
             <view class="list-item-ft arrow "></view>
           </view>
@@ -43,24 +49,42 @@
             <view class="list-item-hd">
               <view class="item-star color-ff6262">*</view>
               <view class="item-title">作业区 </view>
-              <view class="item-desc" capture-bind:tap="showRadioGroup" data-type="WORK_AREA"><input type="text" value="{{order.distributionPoint}}" placeholder="请选择作业区" placeholder-class="placeholder" disabled /></view>
+              <view class="item-desc" capture-bind:tap="showRadioGroup" data-type="WORK_AREA">
+                <input type="text" name='distributionPoint' value="{{order.distributionPoint}}" placeholder="请选择作业区" placeholder-class="placeholder" disabled />
+              </view>
             </view>
             <view class="list-item-ft arrow"></view>
           </view>
           <!--计划类型 -->
-          <view class="list-item ">
+          <view class="list-item">
             <view class="list-item-hd ">
               <view class="item-star color-ff6262">*</view>
               <view class="item-title ">计划类型 </view>
-              <view class="item-desc "><input type="text" name="bill" value="{{order.bill}}" placeholder="请选择计划类型 " placeholder-class="placeholder" disabled capture-bind:tap="showRadioGroup" data-type="PLAN_TYPE" /></view>
+              <view class="item-desc ">
+                <input type="text" name="bill" value="{{order.bill}}" placeholder="请选择计划类型 " placeholder-class="placeholder" disabled capture-bind:tap="showRadioGroup" data-type="PLAN_TYPE" />
+              </view>
             </view>
+            <view class="list-item-ft arrow"></view>
+          </view>
+          <!--配送日期  -->
+          <view class="list-item">
+            <view class="list-item-hd">
+              <view class="item-star color-ff6262">*</view>
+              <view class="item-title">配送日期</view>
+              <picker class="item-desc" mode='date' start='{{start}}' bindchange='getDate'>
+                <input type="text" name='sendDate' value="{{sendDate}}" placeholder="请选择配送日期" placeholder-class="placeholder" disabled />
+              </picker>
+            </view>
+            <view class="list-item-ft arrow "></view>
           </view>
           <!--配送方式  -->
           <view class="list-item" style="{{!orgShowed ? 'border:none;':''}}">
             <view class="list-item-hd">
               <view class="item-star color-ff6262">*</view>
               <view class="item-title">配送方式</view>
-              <view class="item-desc" capture-bind:tap="showRadioGroup" data-type="SEND_METHOD"><input type="text" value="{{order.deliveryMethod}}" placeholder="请选择配送方式" placeholder-class="placeholder" disabled /></view>
+              <view class="item-desc" capture-bind:tap="showRadioGroup" data-type="SEND_METHOD">
+                <input type="text" name='deliveryMethod' value="{{order.deliveryMethod}}" placeholder="请选择配送方式" placeholder-class="placeholder" disabled />
+              </view>
             </view>
             <view class="list-item-ft arrow "></view>
           </view>
@@ -69,7 +93,9 @@
             <view class="list-item-hd ">
               <view class="item-star color-ff6262 "></view>
               <view class="item-title"> 所属部门 </view>
-              <view class="item-desc" data-type="ORG" capture-bind:tap="showRadioGroup"><input type="text" value="{{order.orgName}}" disabled="{{orgDisabled}}" name="orgName" placeholder="请选择/输入部门信息" placeholder-class="placeholder " /></view>
+              <view class="item-desc" data-type="ORG" capture-bind:tap="showRadioGroup">
+                <input type="text" name='orgName' value="{{order.orgName}}" disabled="{{orgDisabled}}" name="orgName" placeholder="请选择/输入部门信息" placeholder-class="placeholder " />
+              </view>
             </view>
             <view class="list-item-ft arrow "></view>
           </view>
@@ -87,7 +113,9 @@
                 <block wx:else>
                   <picker mode="region" bindchange="bindRegionChange">
                     <view class="form-input" style="margin-left:-8px;">
-                      <view wx:if="{{order.address ==undefined ||order.address == ''}}"><text class="placeholder">请选择省,市,区</text></view>
+                      <view wx:if="{{order.address ==undefined ||order.address == ''}}">
+                        <text class="placeholder">请选择省,市,区</text>
+                      </view>
                       <view wx:else>{{order.address}}</view>
                     </view>
                   </picker>
@@ -98,7 +126,9 @@
           <view class="list-item" style="border:none;" wx:if="{{detailAddressShowed}}">
             <view class="list-item-hd ">
               <view class="item-star "></view>
-              <view class="item-title " style="flex:2;"><input type="text" name="addressDetail" value="{{order.addressDetail}}"  placeholder="请输入详细地址 " placeholder-class="placeholder " /></view>
+              <view class="item-title " style="flex:2;">
+                <input type="text" name="addressDetail" value="{{order.addressDetail}}" placeholder="请输入详细地址 " placeholder-class="placeholder " />
+              </view>
             </view>
           </view>
           <view class="border-top-5px ">
@@ -124,7 +154,9 @@
             <view class="list-item-hd ">
               <view class="item-star color-ff6262 "></view>
               <view class="item-title">联系人</view>
-              <view class="item-desc "><input type="text" name="linkMan" placeholder="请输入联系人 " placeholder-class="placeholder" value="{{order.linkMan}}" /></view>
+              <view class="item-desc ">
+                <input type="text" name="linkMan" placeholder="请输入联系人 " placeholder-class="placeholder" value="{{order.linkMan}}" />
+              </view>
             </view>
           </view>
           <!--联系电话  -->
@@ -132,14 +164,18 @@
             <view class="list-item-hd ">
               <view class="item-star color-ff6262 "></view>
               <view class="item-title">联系电话</view>
-              <view class="item-desc"><input type="text" name="phone" placeholder="请输入联系方式 " placeholder-class="placeholder " value="{{order.phone}}" /></view>
+              <view class="item-desc">
+                <input type="text" name="phone" placeholder="请输入联系方式 " placeholder-class="placeholder " value="{{order.phone}}" />
+              </view>
             </view>
           </view>
           <view class="list-item ">
             <view class="list-item-hd ">
               <view class="item-star color-ff6262 "></view>
               <view class="item-title">备注 </view>
-              <view class="item-desc"><input type="text" value="{{order.memo}}" name="memo" placeholder="选填 " placeholder-class="placeholder " /></view>
+              <view class="item-desc">
+                <input type="text" value="{{order.memo}}" name="memo" placeholder="选填 " placeholder-class="placeholder " />
+              </view>
             </view>
           </view>
         </view>
@@ -147,7 +183,7 @@
     </view>
   </scroll-view>
   <button class="foot " formType="submit">
-   完成
+    完成
   </button>
 </form>
 

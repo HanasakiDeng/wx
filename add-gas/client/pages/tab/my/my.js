@@ -1,62 +1,23 @@
 // pages/my/my.js
-var qcloud = require('../../../vendor/wafer2-client-sdk/index')
-var config = require('../../../config')
-var util = require('../../../utils/util.js')
+let qcloud = require('../../../vendor/wafer2-client-sdk/index')
+let appInstance = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    logined: false,
-    userInfo: {}
-
+    userInfo: null
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (this.data.logined) return
-
-    util.showBusy('正在登录')
-    var that = this
-
-    // 调用登录接口
-    qcloud.login({
-      success(result) {
-        if (result) {
-          console.log(result);
-          util.showSuccess('登录成功')
-          console.log(result)
-          that.setData({
-            userInfo: result,
-            logined: true
-          })
-        } else {
-          // 如果不是首次登录，不会返回用户信息，请求用户信息接口获取
-          qcloud.request({
-            url: config.service.requestUrl,
-            login: true,
-            success(result) {
-              util.showSuccess('登录成功')
-              that.setData({
-                userInfo: result.data.data,
-                logined: true
-              })
-            },
-            fail(error) {
-              util.showModel('请求失败', error)
-              console.log('request fail', error)
-            }
-          })
-        }
-      },
-      fail(error) {
-        util.showModel('登录失败', error)
-        console.log('登录失败', error)
-      }
+    this.setData({
+      userInfo: appInstance.globalData.userInfo
     })
+
   },
 
   /**

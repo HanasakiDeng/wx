@@ -44,15 +44,6 @@
             </view>
             <view class="list-item-ft arrow"></view>
           </view>
-          <!--配送方式  -->
-          <view class="list-item ">
-            <view class="list-item-hd ">
-              <view class="item-star color-ff6262 ">*</view>
-              <view class="item-title ">配送方式 </view>
-              <view class="item-desc" capture-bind:tap="showRadioGroup" data-type="SEND_METHOD"><input type="text" name="f_deliverymethod" value="{{modifyInputValue.order.FDeliveryMethod}}" placeholder="请选择配送方式" placeholder-class="placeholder" disabled /></view>
-            </view>
-            <view class="list-item-ft arrow "></view>
-          </view>
           <!--计划类型  -->
           <view class="list-item ">
             <view class="list-item-hd ">
@@ -62,8 +53,28 @@
             </view>
             <view class="list-item-ft arrow "></view>
           </view>
-          <!--所属部门  -->
+          <!--配送日期  -->
           <view class="list-item">
+            <view class="list-item-hd">
+              <view class="item-star color-ff6262">*</view>
+              <view class="item-title">配送日期</view>
+              <picker class="item-desc" mode='date' start='{{start}}' bindchange='getDate'>
+                <input type="text" name='sendDate' value="{{modifyInputValue.order.FDate}}" placeholder="请选择配送日期" placeholder-class="placeholder" disabled />
+              </picker>
+            </view>
+            <view class="list-item-ft arrow "></view>
+          </view>
+          <!--配送方式  -->
+          <view class="list-item ">
+            <view class="list-item-hd ">
+              <view class="item-star color-ff6262 ">*</view>
+              <view class="item-title ">配送方式 </view>
+              <view class="item-desc" capture-bind:tap="showRadioGroup" data-type="SEND_METHOD"><input type="text" name="f_deliverymethod" value="{{modifyInputValue.order.FDeliveryMethod}}" placeholder="请选择配送方式" placeholder-class="placeholder" disabled /></view>
+            </view>
+            <view class="list-item-ft arrow "></view>
+          </view>
+          <!--所属部门  -->
+          <view class="list-item" wx:if="{{deptShow}}">
             <view class="list-item-hd ">
               <view class="item-star color-ff6262 "></view>
               <view class="item-title"> 所属部门 </view>
@@ -80,7 +91,7 @@
                 <view class="item-desc ">
                   <picker disabled="{{addressDisabled}}" mode="region" bindchange="bindRegionChange">
                     <view class="form-input" style="margin-left:-8px;">
-                      <view wx:if="{{modifyInputValue.order.FAddress ==undefined ||modifyInputValue.order.FAddress == ''}}">
+                      <view wx:if="{{modifyInputValue.order.FAddress ===undefined ||modifyInputValue.order.FAddress == ''}}">
                         <text class="placeholder">请选择省,市,区</text>
                       </view>
                       <view wx:else>{{modifyInputValue.order.FAddress}}</view>

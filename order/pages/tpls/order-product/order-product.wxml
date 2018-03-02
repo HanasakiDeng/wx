@@ -7,7 +7,7 @@
   <view class="list2-content">
     <view class="list2-item">{{item.FItemCode.FSpec}}</view>
     <view class="list2-item"> 
-       <input type="number" name="num_{{index}}" class="num-input color-629aff" bindinput="getNum" value="{{item.FItemCode.FNum}}" data-index="{{index}}"/>
+       <input type="number" name="num_{{index}}" class="num-input color-629aff" bindinput="getNum" value="{{item.FQty}}" data-index="{{index}}"/>
        <view >{{item.FItemCode.FUnit}}</view>
      </view>
     <view class="list2-item" style="flex:2;margin-left:15px;"> 

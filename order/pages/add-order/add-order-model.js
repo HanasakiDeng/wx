@@ -3,25 +3,20 @@ import { Config } from '../../utils/config.js';
 import { OrderDto, ProductDto } from 'order-dto.js';
 import { Constants } from '../../utils/constants.js';
 
-
 let orderDto = null;
 let order = {};
 
 
-let saleList = wx.getStorageSync('SALE'),  //业务员列表
-  workAreaList = wx.getStorageSync('WORK_AREA'), //工作区列表
-  sendMethodList = wx.getStorageSync('SEND_METHOD'), //配送方式列表
-  planList = wx.getStorageSync('PLAN_TYPE'), //计划类型
-  orgAddressList = [], //所属部门地址 FAddress
-  orgNameList = [],//所属部门名字 FName
-  dialogOptions = {
-    showDialogStatus: true,
-    content: '您添加的机构信用不足哦,是否继续',
-    cancelText: '取消',
-    confirmText: '继续',
-    cancel: 'hideDialog',
-    confirm: 'hideDialog'
-  };
+let orgAddressList = []; //所属部门地址 FAddress
+let orgNameList = [];//所属部门名字 FName
+let dialogOptions = {
+  showDialogStatus: true,
+  content: '您添加的机构信用不足哦,是否继续',
+  cancelText: '取消',
+  confirmText: '继续',
+  cancel: 'hideDialog',
+  confirm: 'hideDialog'
+};
 
 class AddOrderModel extends Base {
   constructor() {
@@ -29,11 +24,8 @@ class AddOrderModel extends Base {
   }
   // 获取客户信息
   getCustomerInfoFromServer(code, _this) {
-    console.log("order:");
-    console.log(order);
     orgAddressList = [];
     orgNameList = [];
-
     var self = this;
     let params = {
       method: "GET",
@@ -67,8 +59,8 @@ class AddOrderModel extends Base {
             //机构相同 
             let tempProductList = wx.getStorageSync(Constants.ADD_PRODUCT_LIST);
             if (tempProductList.length != 0) {
-              _this.data.addBtnShowed = !(tempProductList.length == _this.data.productList.length) ;
-            }else{
+              _this.data.addBtnShowed = !(tempProductList.length == _this.data.productList.length);
+            } else {
               _this.data.addBtnShowed = true;
             }
           }
@@ -105,7 +97,7 @@ class AddOrderModel extends Base {
   //插入订单数据到服务器
   insertDataToServer(data) {
     let orderDto = new OrderDto(data);
-    console.log(orderDto);
+    console.log(orderDto)
     let params = {
       method: "POST",
       url: Config.addOrderUrl,
@@ -132,7 +124,6 @@ class AddOrderModel extends Base {
   firstLoad(_this) {
     order = {}
     _this.setData({
-      order: order,
       productList: [],
       showed: true,
       codeShowed: true,
@@ -169,7 +160,11 @@ class AddOrderModel extends Base {
   getOptionsList(e, _this) {
     let type = this.getDataSet(e, 'type'),
       optionsList = [];
-      console.log("类型"+type);
+    console.log("类型" + type);
+    let saleList = wx.getStorageSync('SALE'),  //业务员列表
+      workAreaList = wx.getStorageSync('WORK_AREA'), //工作区列表
+      sendMethodList = wx.getStorageSync('SEND_METHOD'), //配送方式列表
+      planList = wx.getStorageSync('PLAN_TYPE'); //计划类型
     switch (type) {
       case 'SALE': optionsList = saleList; break;
       case 'WORK_AREA': optionsList = workAreaList; break;

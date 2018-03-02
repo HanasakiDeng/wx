@@ -9,7 +9,6 @@
     "pages/search/search",
     "pages/product-detail/product-detail",
     "pages/order-detail/order-detail"
-   
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -11,16 +11,21 @@ class OrderDetailModel extends Base {
       url: Config.getOrderDetailUrl(key_id),
       method: 'GET',
       success: (res) => {
-        console.log(res)
+        console.log(res);
+        for (let item in res.products) {
+          let price = Number(res.products[item].FPrice).toFixed(2);
+          let num = Number(res.products[item].FQty).toFixed();
+          res.products[item].FPrice = price;
+          res.products[item].FQty = num;
+        }
+        page.setData({ 
+          detailInfo: res
+        })
         if (res.order.FLinkman == null || res.order.FLinkman == "") {
-          page.setData({
-            linkMan : false
-          })
+          res.order.FLinkman = ""
         }
         if (res.order.FPhone == null || res.order.FPhone == "") {
-          page.setData({
-            phone: false
-          })
+          res.order.FPhone = ""
         }
         if (res.order.FOrgName == null || res.order.FOrgName == "") {
           page.setData({
@@ -41,9 +46,6 @@ class OrderDetailModel extends Base {
           res.products[index].FQty = Math.floor(res.products[index].FQty)
           res.products[index].FItemCode.FNum = res.products[index].FQty
         }
-        page.setData({
-          detailInfo: res
-        })
       },
       fail: (msg) => {
         console.log(msg)

@@ -1,19 +1,17 @@
-const Config = require('./gas_config');
 let GeographyUtils = require('../../common/utils/GeographyUtils');
 const nearByDistance = 10; //以5公里为界限;
 const degree = GeographyUtils.calcDegreesByDistance(nearByDistance);
+const { mysql } = require('../../qcloud');
 
-class TGasStation {
-    constructor() {
-        this.tableName = 'gas_station';
-    }
-
-    /**
-     * 查询加油站列表
-     * @param reqBody 请求体对象
-     */
-    queryGasStationList(reqBody) {
-        let sql = `
+function TGasStation() {
+  this.tableName = 'gas_station';
+}
+/**
+  * 查询加油站列表
+  * @param reqBody 请求体对象
+  */
+TGasStation.queryGasStationList = function (reqBody) {
+  let sql = `
                  SELECT
 	                gas_station_id,
 	                name,
@@ -43,9 +41,7 @@ class TGasStation {
                  AND longitude < ${reqBody.longitude} + ${degree}
                  ORDER BY distance ASC
                  LIMIT ${reqBody.currentOffset},5`;
-        console.log(sql);
-        return Config.GasDB.raw(sql);
-    }
+  console.log(sql);
+  return mysql('cAuth').raw(sql);
 }
-
 module.exports = TGasStation;

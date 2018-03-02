@@ -20,9 +20,42 @@ let app = {
     })
     console.log(this.data.isInput);
   },
-  onShow:function(e){
-    
+  onLaunch: function (e) {
+
+  },
+  onShow: function (e) {
+
+  },
+  onLaunch: function (e) {
+
+  },
+  onShow: function (e) {
+    let role = wx.getStorageSync('ROLE');
+    let username = wx.getStorageSync('USERANME');
+    let password = wx.getStorageSync('PASSWORD');
+    if (role) {
+      this.setData({
+        username: username,
+        password: password
+      })
+      wx.showToast({
+        title: '登录状态保持成功',
+        icon: 'success',
+        success: function () {
+          if (role === '1086') {
+            wx.redirectTo({
+              url: '../order-list/order-list'
+            })
+          } else {
+            wx.redirectTo({
+              url: '../examine/examine'
+            })
+          }
+        }
+      })
+
+    }
   }
-  
+
 }
 Page(app);

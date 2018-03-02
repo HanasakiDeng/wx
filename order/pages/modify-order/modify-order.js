@@ -23,19 +23,20 @@ Page({
    */
   onLoad: function (options) {
     wx.removeStorageSync("STATUS");
-    modifyOrderModel.getModifyInfo(options,this);
+    console.log('[modify-order line 26 ]', options)
+    modifyOrderModel.getModifyInfo(options, this);
     console.log(this.data.key_id)
   },
   // 获取数目
   getNum: function (e) {
     let index = modifyOrderModel.getDataSet(e, 'index'),
-    num = e.detail.value;
+      num = e.detail.value;
     console.log(num);
   },
   //获取金额
   getPrice: function (e) {
     let index = modifyOrderModel.getDataSet(e, 'index'),
-    price = e.detail.value;
+      price = e.detail.value;
   },
   // 修改订单
   modifyOrder: function (e) {
@@ -47,7 +48,7 @@ Page({
     modifyOrderModel.modifyCompleted(key_id, data, this);
   },
   showRadioGroup: function (e) {
-    console.log(11)
+    console.log(e)
     modifyOrderModel.getOptionsList(e, this);
   },
   getSelectdItem: function (e) {
@@ -64,6 +65,7 @@ Page({
   },
   bindAddProductTap: function (e) {
     let productList = JSON.stringify(this.data.productList);
+    console.log('modify-order:productList', productList);
     let code = this.data.modifyInputValue.order.FCode;
     wx.navigateTo({
       url: `../add-product/add-product?code=${code}&pageIndex=2&productList=${productList}`,
@@ -87,37 +89,49 @@ Page({
   },
 
   /**
+   * 监测日期选择器
+   */
+  getDate(e) {
+    console.log(this.data.modifyInputValue)
+    console.log('选择的日期为：', e.detail.value);
+    this.data.modifyInputValue.order.FDate = e.detail.value;
+    this.setData({
+      modifyInputValue: this.data.modifyInputValue
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

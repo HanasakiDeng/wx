@@ -1,13 +1,12 @@
-var express = require('express');
-var router = express.Router();
-var fs = require('fs');
-var path = require("path");
-var formidable = require('formidable');
-var multiparty = require('multiparty')
+let express = require('express');
+let router = express.Router();
+let fs = require('fs');
+let path = require("path");
+let multiparty = require('multiparty');
 
 
 router.post('/images', function (req, res, next) {
-    var form = new multiparty.Form();
+    let form = new multiparty.Form();
     form.encoding = 'utf-8';
     //设置文件存储路径
     form.uploadDir = path.join((path.resolve(__dirname, '../..')).toString(), 'public/upload/images/');
@@ -19,18 +18,18 @@ router.post('/images', function (req, res, next) {
         if (err) {
             console.log(err);
         } else {
-            var t = (new Date()).getTime();
+            let t = (new Date()).getTime();
             //生成随机数
-            var ran = parseInt(Math.random() * 8999 + 10000);
+            let ran = parseInt(Math.random() * 8999 + 10000);
             //拿到扩展名
-            var suffixName = path.extname((files.test)[0].path);
+            let suffixName = path.extname((files.test)[0].path);
 
             //path.normalize('./path//files/data/../file/./123.jpg'); 规范格式文件名
-            var oldPath = path.normalize((files.test)[0].path);
+            let oldPath = path.normalize((files.test)[0].path);
 
             //新的路径
-            var newFileName = t + ran + suffixName;
-            var newPath = form.uploadDir + newFileName;
+            let newFileName = t + ran + suffixName;
+            let newPath = form.uploadDir + newFileName;
             console.warn('oldPath:' + oldPath + ' newPath:' + newPath);
             fs.rename(oldPath, newPath, function (err) {
                 if (err) {
@@ -39,14 +38,12 @@ router.post('/images', function (req, res, next) {
                 res.status(200).json({title: '图片上传成功:', imginfo: newFileName});
             });
         }
-
-
         //res.end(util.inspect({fields: fields, files: files}));
     });
 });
 
 router.post('/files', function (req, res, next) {
-    var form = new multiparty.Form();
+    let form = new multiparty.Form();
     form.encoding = 'utf-8';
     //设置文件存储路径
     form.uploadDir = path.join((path.resolve(__dirname, '../..')).toString(), 'public/upload/files/');
@@ -58,18 +55,18 @@ router.post('/files', function (req, res, next) {
         if (err) {
             console.log(err);
         } else {
-            var t = (new Date()).getTime();
+            let t = (new Date()).getTime();
             //生成随机数
-            var ran = parseInt(Math.random() * 8999 + 10000);
+            let ran = parseInt(Math.random() * 8999 + 10000);
             //拿到扩展名
-            var suffixName = path.extname((files.test)[0].path);
+            let suffixName = path.extname((files.test)[0].path);
 
             //path.normalize('./path//files/data/../file/./123.jpg'); 规范格式文件名
-            var oldPath = path.normalize((files.test)[0].path);
+            let oldPath = path.normalize((files.test)[0].path);
 
             //新的路径
-            var newFileName = t + ran + suffixName;
-            var newPath = form.uploadDir + newFileName;
+            let newFileName = t + ran + suffixName;
+            let newPath = form.uploadDir + newFileName;
             console.warn('oldPath:' + oldPath + ' newPath:' + newPath);
             fs.rename(oldPath, newPath, function (err) {
                 if (err) {

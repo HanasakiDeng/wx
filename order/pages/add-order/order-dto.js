@@ -16,6 +16,7 @@ function OrderDto(data) {
   this.products = data.products; //是 数组对象 定制产品
   this.f_linkman = data.linkMan; //否	string	联系人
   this.f_phone = data.phone; //否	string	联系电话
+  this.f_date = data.sendDate; // 是 date(yyyy-mm-dd) 配送日期
   return this;
 }
 

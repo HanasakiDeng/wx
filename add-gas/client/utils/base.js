@@ -1,8 +1,4 @@
 
-import { Config } from '../utils/config.js';
-import { Token } from 'token.js';
-
-
 class Base {
 
   // 构造函数
@@ -15,14 +11,11 @@ class Base {
 
   request(params) {
 
-    let that = this,
-      token = wx.getStorageSync('token');
+    let that = this;
 
     if (!params.method) {
       params.method = 'GET';
     }
-    params.data.token = token;
-    console.log(params.data);
     wx.request({
       url: params.url,
 
@@ -31,10 +24,11 @@ class Base {
       method: params.method,
 
       success: function (res) {
+        console.log("测试url", params.url)
+        console.log("测试RES", res);
+        console.log("测试参数", params.data)
         //请求成功的情况
         if (res.statusCode.toString().startsWith('2')) {
-          console.log("base:res");
-          console.log(res.data);
           typeof params.success === 'function' && params.success(res.data);
         }
         /**
@@ -54,35 +48,10 @@ class Base {
       }
     })
   }
-
-
-  _refetch(params) {
-    var token = new Token();
-    token.getTokenFromServer((token) => {
-      // 此处使用了箭头函数，保持环境变量不改变是箭头函数的一个特点，使用箭头函数，this的指代不会发生改变
-
-      this.request(params, true);
-    });
-  }
-
   //获取元素上的绑定的值
   getDataSet(event, key) {
     return event.currentTarget.dataset[key];
   }
-
-  uploadFile(){
-    wx.uploadFile({
-      url: '',
-      filePath: '',
-      name: '',
-      header: {},
-      formData: {},
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
-  }
-
 }
 
 export { Base };

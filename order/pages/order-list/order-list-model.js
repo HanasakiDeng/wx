@@ -12,6 +12,12 @@ export class OrderListModel extends Base {
   }
   // 获取服务器端数据 
   getOrderListFromServer(param, fn, _that) {
+    wx.showLoading({
+      title: '加载中...',
+    })
+    _that.setData({
+      showMsg: true
+    })
     console.log(Config.getOrderListUrl(param));
     let params = {
       url: Config.getOrderListUrl(param),
@@ -19,6 +25,9 @@ export class OrderListModel extends Base {
       success: (res) => {
         fn(res);
         wx.hideLoading();
+        _that.setData({
+          showMsg: false
+        })
       },
       fail: (msg) => {
         wx.hideLoading();
